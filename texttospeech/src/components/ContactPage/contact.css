@@ -1,0 +1,195 @@
+#contactPage {
+    min-height: calc(100vh - 4rem);
+    width: 100vw;
+    max-width: 60rem;
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* #clients {
+    min-height: calc(100vh - 4rem);
+    width: 100vw;
+    max-width: 60rem;
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+} */
+
+ .contactPageTitle {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+} 
+
+/* .clientDesc {
+    font-weight: 300;
+    font-size: 1rem;
+}  */
+
+/* .clientImgs {
+    margin: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+} */
+
+/* .clientImg {
+    object-fit: cover;
+    width: 23%;
+    min-width: 9rem;
+    margin: auto;
+    padding: 0.25rem;
+} */
+
+/* #clients {
+    padding: 2rem;
+} */
+
+.contactDesc {
+    padding: 1rem;
+    font-size: medium;
+    font-weight: 300;
+}
+
+.contactForm,#contact {
+    margin: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 90vw;
+    max-width: 60rem;
+}
+
+.name, .email, .msg {
+    font-size: medium;
+    width: 100%;
+    max-width: 40rem;
+    margin: 0.5rem;
+    padding: 0.5rem 1rem;
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    background: rgb(40,40,40);
+}
+
+.button {
+    background: white;
+    border: none;
+    border-radius: 0.5rem;
+    margin: 2rem;
+    padding: 0.75rem 3.5rem;
+}
+
+/* .links {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.link {
+    object-fit: cover;
+    height: 3rem;
+    width: 3rem;
+    margin: 0 0.75rem;
+} */
+
+
+
+/* For submit button */
+
+.button {
+    margin-top: 30px;
+    padding: 10px 47px;
+    font-size: 25px;
+    cursor: pointer;
+    border-radius: 35px;
+    background: black;
+    /* Set initial background color to black */
+    font-weight: 300;
+    z-index: 1;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid rgba(78, 205, 196, 0.3);
+    box-shadow: 0 0 15px rgba(78, 205, 196, 0.3);
+    color: white;
+    /* Ensure text color is explicitly set */
+    text-align: center;
+    /*  transition: all 0.3s ease; /* Smooth transition for hover effects */
+}
+
+/* Gradient overlay */
+.button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 200%;
+    height: 100%;
+    background: linear-gradient(45deg, #FF6B6B, #4ECDC4, #FF6B6B);
+    background-size: 200% 200%;
+    z-index: 0;
+    transition: left 0.5s ease, opacity 0.3s ease;
+    opacity: 0;
+    /* Initially transparent */
+    mix-blend-mode: screen;
+    /* Blend gradient with background */
+}
+
+/* On hover: animate gradient */
+.button:hover::before {
+    left: 0;
+    opacity: 1;
+    /* Make gradient visible on hover */
+    animation: gradient 3s ease infinite;
+}
+
+/* Text stays on top */
+.button>* {
+    position: relative;
+    z-index: 1;
+}
+
+/* Hover effects */
+.button:hover {
+    background: black;
+    /* Keep the background black */
+    color: white;
+    /* Enforce text color */
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(78, 205, 196, 0.2);
+    border-color: transparent;
+}
+
+/* Keyframe animation */
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* .icon {
+    font-size: 32px;
+    color: rgb(204, 200, 200);
+    margin: 10px;
+    transition: transform 0.3s ease, color 0.3s ease;
+    display: inline-block;
+}
+
+.icon:hover {
+    transform: scale(1.2);
+    color: rgb(168, 171, 171);
+}
+ */

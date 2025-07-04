@@ -11,21 +11,25 @@ import Login from './components/Login/Login'
 import Register from './components/Register/Register'
 import InnerDashboard from './components/InnerDashboard/InnerDashboard'
 import { ExpandableCardDemo } from './components/Flash Card/flashCard'
+import Contact from './components/ContactPage/contact'
+import FlashCardApp from './components/Flash Card 2/FlashCardApp'
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <div>
-      {/* <Header />
+      <Header />
       <Body />
-      <Footer /> */}
-      {/* <DashHeader /> */}
-      {/* <Dashboard /> */}
-      {/* <Login /> */}
-      {/* <InnerDashboard />  */}
+      <Footer />
+      <DashHeader />
+      <Dashboard />
+      <Login />
+      <InnerDashboard />
       
       <ExpandableCardDemo></ExpandableCardDemo>
+      <Contact></Contact>
+      <FlashCardApp></FlashCardApp>
     </div>
 
   )

@@ -10,6 +10,8 @@ import Register from './components/Register/Register.jsx'
 import Dashboard from './components/Dashboard/Body/Dashboard.jsx'
 import InnerDashboard from './components/InnerDashboard/InnerDashboard.jsx'
 import { ExpandableCardDemo } from './components/Flash Card/flashCard.jsx'
+import Contact from './components/ContactPage/contact.jsx'
+import FlashCardApp from './components/Flash Card 2/FlashCardApp.jsx'
 
 
 
@@ -26,7 +28,9 @@ const router = createBrowserRouter(
         <Route index element={<Dashboard />} />
         <Route path='Voxify' element={<InnerDashboard />} />
       </Route>
-    <Route path='/flashCard' element={<ExpandableCardDemo />}></Route>
+    {/* <Route path='/flashCard' element={<ExpandableCardDemo />}></Route> */}
+    <Route path='/Contact' element={<Contact/>}></Route>
+    <Route path='/flashCard' element={<FlashCardApp/>}></Route>
     </Route>
 
   )
