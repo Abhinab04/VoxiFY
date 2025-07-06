@@ -131,7 +131,7 @@ const QuizPage = () => {
 
             <div className="button-group">
               <button type="button" onClick={addQuestion}>
-                ➕ Add Question
+                 Add Question
               </button>
               <button type="submit"> Create Quiz</button>
             </div>
@@ -163,7 +163,7 @@ const QuizPage = () => {
                 ))}
               </div>
             ))}
-            <button type="submit">🚀 Submit Quiz</button>
+            <button type="submit"> Submit Quiz</button>
           </form>
         </div>
       )}
@@ -172,7 +172,7 @@ const QuizPage = () => {
         <div className="result-section">
           <h2>Result</h2>
           <p>
-            🎯 You scored {score} out of {quiz.questions.length}
+             You scored {score} out of {quiz.questions.length}
           </p>
           <div className="button-group">
             <button onClick={() => setMode('attempt')}> Retake Quiz</button>
