@@ -1,7 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const passport = require('passport')
-const bcrypt = require('bcryptjs')
+const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
 
 const User = require('../models/Users')
 require('../config/passport')(passport)
@@ -81,27 +82,49 @@ router.post('/Register', (req, res) => {
 })
 
 
-router.post('/Login', (req, res, next) => {
-    passport.authenticate('local', (err, user, info) => {
-        if (err) {
-            console.error('Authentication Error:', err);
-            return res.status(500).json({ success: false, message: "Server error" });
+router.post('/Login', async (req, res) => {
+    try {
+        const { email, password } = req.body;
+        if (!email || !password) {
+            return res.json({
+                success: false,
+                message: "Please fill all the credentials",
+            })
+        }
+        const exist = await User.findOne({ email });
+        console.log(exist);
+        if (!exist) {
+            return res.json({
+                success: false,
+                message: "User not found please Signup"
+            })
+        }
+        const ismatch = await bcrypt.compare(password, exist.password);
+        if (!ismatch) {
+            return res.json({
+                success: false,
+                message: "password or email doesnt match"
+            })
         }
 
-        if (!user) {
-            return res.status(401).json({ success: false, message: "User not registered or incorrect credentials" });
-        }
+        const token = jwt.sign({ email: exist.email, id: exist._id }, process.env.JWT_SECRET, { expiresIn: '1d' });
 
-        req.logIn(user, (err) => {
-            if (err) {
-                console.error('Login Error:', err);
-                return res.status(500).json({ success: false, message: "Login error" });
-            }
-
-            // If login succeeds
-            return res.status(200).json({ success: true, message: "Login successful, redirect to dashboard" });
+        res.cookie('token', token, {
+            httpOnly: true,
+            secure: false,
+            sameSite: 'Lax',
+            maxAge: 60 * 60 * 1000
         });
-    })(req, res, next);
+
+        return res.json({
+            success: true,
+            message: "login successfull",
+            name: exist.username,
+            email: exist.email
+        });
+    } catch (error) {
+        console.log('Internal Server Error' + error);
+    }
 });
 
 
