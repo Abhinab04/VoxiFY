@@ -117,18 +117,18 @@ export function ExpandableCardDemo() {
                     </div>
                 ) : null}
             </AnimatePresence>
-            <div className="overflow-auto">
-            <ul className="max-w-2xl mx-auto w-full gap-4" style={styles.footer}>
-                
 
-                    {cards.map((card, index) => (
-                        <motion.div
-                            layoutId={`card-${card.title}-${id}`}
-                            key={`card-${card.title}-${id}`}
-                            onClick={() => setActive(card)}
-                            className="p-4 flex flex-col md:flex-row justify-between items-center hover:bg-neutral-50 dark:hover:bg-neutral-800 rounded-xl cursor-pointer">
-                            <div className="flex gap-4 flex-col md:flex-row ">
-                                {/* <motion.div layoutId={`image-${card.title}-${id}`}>
+            <ul className="max-w-2xl mx-auto w-full gap-4" style={styles.footer}>
+
+
+                {cards.map((card, index) => (
+                    <motion.div
+                        layoutId={`card-${card.title}-${id}`}
+                        key={`card-${card.title}-${id}`}
+                        onClick={() => setActive(card)}
+                        className="p-4 flex flex-col md:flex-row justify-between items-center hover:bg-neutral-50 dark:hover:bg-neutral-800 rounded-xl cursor-pointer">
+                        <div className="flex gap-4 flex-col md:flex-row ">
+                            {/* <motion.div layoutId={`image-${card.title}-${id}`}>
                                 <img
                                     width={100}
                                     height={100}
@@ -136,29 +136,29 @@ export function ExpandableCardDemo() {
                                     alt={card.title}
                                     className="h-40 w-40 md:h-14 md:w-14 rounded-lg object-cover object-top" />
                             </motion.div> */}
-                                <div className="flex flex-row justify-start items-start ">
-                                    <motion.h3
-                                        layoutId={`title-${card.title}-${id}`}
-                                        className="font-medium text-neutral-800 dark:text-neutral-200 text-center md:text-left p-2">
-                                        Q &nbsp;{card.title}
-                                    </motion.h3>
-                                    {/* <motion.p
+                            <div className="flex flex-row justify-start items-start ">
+                                <motion.h3
+                                    layoutId={`title-${card.title}-${id}`}
+                                    className="font-medium text-neutral-800 dark:text-neutral-200 text-center md:text-left p-2">
+                                    Q &nbsp;{card.title}
+                                </motion.h3>
+                                {/* <motion.p
                                     layoutId={`description-${card.description}-${id}`}
                                     className="text-neutral-600 dark:text-neutral-400 text-center md:text-left">
                                     {card.description}
                                 </motion.p> */}
-                                </div>
                             </div>
-                            {/* <motion.button
+                        </div>
+                        {/* <motion.button
                             layoutId={`button-${card.title}-${id}`}
                             className="px-4 py-2 text-sm rounded-full font-bold bg-gray-100 hover:bg-green-500 hover:text-white text-black mt-4 md:mt-0">
                             {card.ctaText}
                         </motion.button> */}
-                        </motion.div>
-                    ))}
-                
+                    </motion.div>
+                ))}
+
             </ul>
-            </div>
+
         </div>
     );
 }
@@ -195,6 +195,11 @@ export const CloseIcon = () => {
     );
 };
 
+
+// in cards array/object (down variable) 
+// -->> bekar ka keys - {'description', 'src', 'ctaText' } -> keys having no use....
+// -->> Kam ka keys - {'title' - for question; 'content' - for answers} 
+
 const cards = [
     {
         description: "Lana Del Rey",
@@ -219,8 +224,88 @@ const cards = [
         },
     },
     {
+        description: "Lana Del Rey",
+        title: "coming slow",
+        // src: "https://assets.aceternity.com/demos/lana-del-rey.jpeg",
+        ctaText: "Play",
+        ctaLink: "https://ui.aceternity.com/templates",
+        content: () => {
+            return (
+                <p>Lana Del Rey, an iconic American singer-songwriter, is celebrated for
+                    her melancholic and cinematic music style. Born Elizabeth Woolridge
+                    Grant in New York City, she has captivated audiences worldwide with
+                    her haunting voice and introspective lyrics. <br /> <br />Her songs
+                    often explore themes of tragic romance, glamour, and melancholia,
+                    drawing inspiration from both contemporary and vintage pop culture.
+                    With a career that has seen numerous critically acclaimed albums, Lana
+                    Del Rey has established herself as a unique and influential figure in
+                    the music industry, earning a dedicated fan base and numerous
+                    accolades.
+                </p>
+            );
+        },
+    },
+    {
         // description: "Babbu Maan",
         title: "Mitran Di Chhatri ajhfdj sadshj s asklfsjka hs josf sdajfoisdjf ioaf sajfiosjf ash ioaj ioh iosfj saioh isofj sioj oiajf oisajf ioasjf ioasfjiosfj sij isj isjf iosafj siaofj siaofjsfajfhsfafuajsfjaifhgfahsou as hasif hsoadf hsaifhsuifh siufh asiufhsafhsiafhsauifhasuifhsaifhdsaufhsfhui   iashui hsu s saf uahfuifh fh 9sh",
+        src: "https://assets.aceternity.com/demos/babbu-maan.jpeg",
+        ctaText: "Play",
+        ctaLink: "https://ui.aceternity.com/templates",
+        content: () => {
+            return (
+                <p>Babu Maan, a legendary Punjabi singer, is renowned for his soulful
+                    voice and profound lyrics that resonate deeply with his audience. Born
+                    in the village of Khant Maanpur in Punjab, India, he has become a
+                    cultural icon in the Punjabi music industry. <br /> <br />His songs
+                    often reflect the struggles and triumphs of everyday life, capturing
+                    the essence of Punjabi culture and traditions. With a career spanning
+                    over two decades, Babu Maan has released numerous hit albums and
+                    singles that have garnered him a massive fan following both in India
+                    and abroad.
+                    sdjfnkjsd sj fdjklj j ksj kdsjg klsdj klsdj odksjg dsiogj oijios jods joisdjg sogjisjgiojg sj iosjsdjio sjdgidsj ijdg iosjgogjoigjdsgljkdfgdsgsj osdj giodjg oisdgj sdogjdio sidgj ds jsdgj oidsjg sidoj sdj dsij sdajfoisdjf ds jods jodsj oisdj oisd
+                    sd jsdoi jsdo jod jsdog jsdog jsoi jsdo jsdi jsdgj sdj sd jsdoi joi jdsio gjdso ns ns jo so ms
+                    s  j iodj siod jsi jid ji fjo jdio jiojfgdfkg ji
+                    Babu Maan, a legendary Punjabi singer, is renowned for his soulful
+                    voice and profound lyrics that resonate deeply with his audience. Born
+                    in the village of Khant Maanpur in Punjab, India, he has become a
+                    cultural icon in the Punjabi music industry. <br /> <br />His songs
+                    often reflect the struggles and triumphs of everyday life, capturing
+                    the essence of Punjabi culture and traditions. With a career spanning
+                    over two decades, Babu Maan has released numerous hit albums and
+                    singles that have garnered him a massive fan following both in India
+                    and abroad. sdjfnkjsd sj fdjklj j ksj kdsjg klsdj klsdj odksjg dsiogj oijios jods joisdjg sogjisjgiojg sj iosjsdjio sjdgidsj ijdg iosjgogjoigjdsgljkdfgdsgsj osdj giodjg oisdgj sdogjdio sidgj ds jsdgj oidsjg sidoj sdj dsij sdajfoisdjf ds jods jodsj oisdj oisd
+                    sd jsdoi jsdo jod jsdog jsdog jsoi jsdo jsdi jsdgj sdj sd jsdoi joi jdsio gjdso ns ns jo so ms
+                    s  j iodj siod jsi jid ji fjo jdio jiojfgdfkg ji
+                    a legendary Punjabi singer, is renowned for his soulful
+                    voice and profound lyrics that resonate deeply with his audience. Born
+                    in the village of Khant Maanpur in Punjab, India, he has become a
+                    cultural icon in the Punjabi music industry. <br /> <br />His songs
+                    often reflect the struggles and triumphs of everyday life, capturing
+                    the essence of Punjabi culture and traditions. With a career spanning
+                    over two decades, Babu Maan has released numerous hit albums and
+                    singles that have garnered him a massive fan following both in India
+                    and abroad.
+                    sdjfnkjsd sj fdjklj j ksj kdsjg klsdj klsdj odksjg dsiogj oijios jods joisdjg sogjisjgiojg sj iosjsdjio sjdgidsj ijdg iosjgogjoigjdsgljkdfgdsgsj osdj giodjg oisdgj sdogjdio sidgj ds jsdgj oidsjg sidoj sdj dsij sdajfoisdjf ds jods jodsj oisdj oisd
+                    sd jsdoi jsdo jod jsdog jsdog jsoi jsdo jsdi jsdgj sdj sd jsdoi joi jdsio gjdso ns ns jo so ms
+                    s  j iodj siod jsi jid ji fjo jdio jiojfgdfkg ji
+                    Babu Maan, a legendary Punjabi singer, is renowned for his soulful
+                    voice and profound lyrics that resonate deeply with his audience. Born
+                    in the village of Khant Maanpur in Punjab, India, he has become a
+                    cultural icon in the Punjabi music industry. <br /> <br />His songs
+                    often reflect the struggles and triumphs of everyday life, capturing
+                    the essence of Punjabi culture and traditions. With a career spanning
+                    over two decades, Babu Maan has released numerous hit albums and
+                    singles that have garnered him a massive fan following both in India
+                    and abroad. sdjfnkjsd sj fdjklj j ksj kdsjg klsdj klsdj odksjg dsiogj oijios jods joisdjg sogjisjgiojg sj iosjsdjio sjdgidsj ijdg iosjgogjoigjdsgljkdfgdsgsj osdj giodjg oisdgj sdogjdio sidgj ds jsdgj oidsjg sidoj sdj dsij sdajfoisdjf ds jods jodsj oisdj oisd
+                    sd jsdoi jsdo jod jsdog jsdog jsoi jsdo jsdi jsdgj sdj sd jsdoi joi jdsio gjdso ns ns jo so ms
+                    s  j iodj siod jsi jid ji fjo jdio jiojfgdfkg ji
+                </p>
+            );
+        },
+    },
+    {
+        // description: "Babbu Maan",
+        title: "Mitran Di Chhatri ajhfdj sadshj s asklfsjka hs josf sdajfoisdjf ioaf sajfiosjf ash ioaj ioh iosfj saioh isofj sioj oiajf  siaofjsfajfhsfafuajsfjaifhgfahsou as hasif hsoadf hsaifhsuifh siufh asiufhsafhsiafhsauifhasuifhsaifhdsaufhsfhui   iashui hsu s saf uahfuifh fh 9sh",
         src: "https://assets.aceternity.com/demos/babbu-maan.jpeg",
         ctaText: "Play",
         ctaLink: "https://ui.aceternity.com/templates",
@@ -340,8 +425,428 @@ const cards = [
         },
     },
     {
+        // description: "Babbu Maan",
+        title: "Mitran Di Chhatri ajhfdj sadshj s asklfsjka hs josf sdajfoisdjf ioaf sajfiosjf ash ioaj ioh iosfj saioh isofj sioj oiajf oisajf ioasjf ioasfjiosfj sij isj isjf iosafj siaofj siaofjsfajfhsfafuajsfjaifhgfahsou as hasif hsoadf hsaifhsuifh siufh asiufhsafhsiafhsauifhasuifhsaifhdsaufhsfhui sdggsg sgfdgsdfg sdfasfdsa fsdf asfasdf asdfasf saf asf sdafasdf sfgsdgsdfgdfsg dsgsdfg dfsgrdstger er tewrt erter t sgfdh er yet ert erwt er gwrwr e erg erlgn erkgherf niheiht iqw huiw hwiue hiuwh tiuh ieu hiuehreiu herui iuerh iweurh wquih fiueh iue hieurh eiruh geui hie iuh iueh ieru hiue iuwe hiueh ih euofhneiuf eiuhe  uer hi  iashui hsu s saf uahfuifh fh 9sh",
+        src: "https://assets.aceternity.com/demos/babbu-maan.jpeg",
+        ctaText: "Play",
+        ctaLink: "https://ui.aceternity.com/templates",
+        content: () => {
+            return (
+                <p>Babu Maan, a legendary Punjabi singer, is renowned for his soulful
+                    voice and profound lyrics that resonate deeply with his audience. Born
+                    in the village of Khant Maanpur in Punjab, India, he has become a
+                    cultural icon in the Punjabi music industry. <br /> <br />His songs
+                    often reflect the struggles and triumphs of everyday life, capturing
+                    the essence of Punjabi culture and traditions. With a career spanning
+                    over two decades, Babu Maan has released numerous hit albums and
+                    singles that have garnered him a massive fan following both in India
+                    and abroad.
+                    sdjfnkjsd sj fdjklj j ksj kdsjg klsdj klsdj odksjg dsiogj oijios jods joisdjg sogjisjgiojg sj iosjsdjio sjdgidsj ijdg iosjgogjoigjdsgljkdfgdsgsj osdj giodjg oisdgj sdogjdio sidgj ds jsdgj oidsjg sidoj sdj dsij sdajfoisdjf ds jods jodsj oisdj oisd
+                    sd jsdoi jsdo jod jsdog jsdog jsoi jsdo jsdi jsdgj sdj sd jsdoi joi jdsio gjdso ns ns jo so ms
+                    s  j iodj siod jsi jid ji fjo jdio jiojfgdfkg ji
+                    Babu Maan, a legendary Punjabi singer, is renowned for his soulful
+                    voice and profound lyrics that resonate deeply with his audience. Born
+                    in the village of Khant Maanpur in Punjab, India, he has become a
+                    cultural icon in the Punjabi music industry. <br /> <br />His songs
+                    often reflect the struggles and triumphs of everyday life, capturing
+                    the essence of Punjabi culture and traditions. With a career spanning
+                    over two decades, Babu Maan has released numerous hit albums and
+                    singles that have garnered him a massive fan following both in India
+                    and abroad. sdjfnkjsd sj fdjklj j ksj kdsjg klsdj klsdj odksjg dsiogj oijios jods joisdjg sogjisjgiojg sj iosjsdjio sjdgidsj ijdg iosjgogjoigjdsgljkdfgdsgsj osdj giodjg oisdgj sdogjdio sidgj ds jsdgj oidsjg sidoj sdj dsij sdajfoisdjf ds jods jodsj oisdj oisd
+                    sd jsdoi jsdo jod jsdog jsdog jsoi jsdo jsdi jsdgj sdj sd jsdoi joi jdsio gjdso ns ns jo so ms
+                    s  j iodj siod jsi jid ji fjo jdio jiojfgdfkg ji
+                    a legendary Punjabi singer, is renowned for his soulful
+                    voice and profound lyrics that resonate deeply with his audience. Born
+                    in the village of Khant Maanpur in Punjab, India, he has become a
+                    cultural icon in the Punjabi music industry. <br /> <br />His songs
+                    often reflect the struggles and triumphs of everyday life, capturing
+                    the essence of Punjabi culture and traditions. With a career spanning
+                    over two decades, Babu Maan has released numerous hit albums and
+                    singles that have garnered him a massive fan following both in India
+                    and abroad.
+                    sdjfnkjsd sj fdjklj j ksj kdsjg klsdj klsdj odksjg dsiogj oijios jods joisdjg sogjisjgiojg sj iosjsdjio sjdgidsj ijdg iosjgogjoigjdsgljkdfgdsgsj osdj giodjg oisdgj sdogjdio sidgj ds jsdgj oidsjg sidoj sdj dsij sdajfoisdjf ds jods jodsj oisdj oisd
+                    sd jsdoi jsdo jod jsdog jsdog jsoi jsdo jsdi jsdgj sdj sd jsdoi joi jdsio gjdso ns ns jo so ms
+                    s  j iodj siod jsi jid ji fjo jdio jiojfgdfkg ji
+                    Babu Maan, a legendary Punjabi singer, is renowned for his soulful
+                    voice and profound lyrics that resonate deeply with his audience. Born
+                    in the village of Khant Maanpur in Punjab, India, he has become a
+                    cultural icon in the Punjabi music industry. <br /> <br />His songs
+                    often reflect the struggles and triumphs of everyday life, capturing
+                    the essence of Punjabi culture and traditions. With a career spanning
+                    over two decades, Babu Maan has released numerous hit albums and
+                    singles that have garnered him a massive fan following both in India
+                    and abroad. sdjfnkjsd sj fdjklj j ksj kdsjg klsdj klsdj odksjg dsiogj oijios jods joisdjg sogjisjgiojg sj iosjsdjio sjdgidsj ijdg iosjgogjoigjdsgljkdfgdsgsj osdj giodjg oisdgj sdogjdio sidgj ds jsdgj oidsjg sidoj sdj dsij sdajfoisdjf ds jods jodsj oisdj oisd
+                    sd jsdoi jsdo jod jsdog jsdog jsoi jsdo jsdi jsdgj sdj sd jsdoi joi jdsio gjdso ns ns jo so ms
+                    s  j iodj siod jsi jid ji fjo jdio jiojfgdfkg ji
+                </p>
+            );
+        },
+    },
+    {
+        description: "Mustafa Zahid",
+        title: "jldi jldi aao",
+        src: "https://assets.aceternity.com/demos/toh-phir-aao.jpeg",
+        ctaText: "Play",
+        ctaLink: "https://ui.aceternity.com/templates",
+        content: () => {
+            return (
+                <p>"Aawarapan", a Bollywood movie starring Emraan Hashmi, is
+                    renowned for its intense storyline and powerful performances. Directed
+                    by Mohit Suri, the film has become a significant work in the Indian
+                    film industry. <br /> <br />The movie explores themes of love,
+                    redemption, and sacrifice, capturing the essence of human emotions and
+                    relationships. With a gripping narrative and memorable music,
+                    "Aawarapan" has garnered a massive fan following both in
+                    India and abroad, solidifying Emraan Hashmi's status as a
+                    versatile actor.
+                </p>
+            );
+        },
+    },
+    {
+        description: "Mustafa Zahid",
+        title: "jldi mt aao",
+        src: "https://assets.aceternity.com/demos/toh-phir-aao.jpeg",
+        ctaText: "Play",
+        ctaLink: "https://ui.aceternity.com/templates",
+        content: () => {
+            return (
+                <p>"Aawarapan", a Bollywood movie starring Emraan Hashmi, is
+                    renowned for its intense storyline and powerful performances. Directed
+                    by Mohit Suri, the film has become a significant work in the Indian
+                    film industry. <br /> <br />The movie explores themes of love,
+                    redemption, and sacrifice, capturing the essence of human emotions and
+                    relationships. With a gripping narrative and memorable music,
+                    "Aawarapan" has garnered a massive fan following both in
+                    India and abroad, solidifying Emraan Hashmi's status as a
+                    versatile actor.
+                </p>
+            );
+        },
+    },
+    {
         description: "Lana Del Rey",
-        title: "Summertime Sadness",
+        title: "coming fast",
+        // src: "https://assets.aceternity.com/demos/lana-del-rey.jpeg",
+        ctaText: "Play",
+        ctaLink: "https://ui.aceternity.com/templates",
+        content: () => {
+            return (
+                <p>Lana Del Rey, an iconic American singer-songwriter, is celebrated for
+                    her melancholic and cinematic music style. Born Elizabeth Woolridge
+                    Grant in New York City, she has captivated audiences worldwide with
+                    her haunting voice and introspective lyrics. <br /> <br />Her songs
+                    often explore themes of tragic romance, glamour, and melancholia,
+                    drawing inspiration from both contemporary and vintage pop culture.
+                    With a career that has seen numerous critically acclaimed albums, Lana
+                    Del Rey has established herself as a unique and influential figure in
+                    the music industry, earning a dedicated fan base and numerous
+                    accolades.
+                </p>
+            );
+        },
+    }, {
+        // description: "Babbu Maan",
+        title: "Mitran Di Chhatri ajhfdj sadshj s asklfsjka hs josf sdajfoisdjf ioaf sajfiosjf ash ioaj ioh iosfj saioh isofj sioj oiajf oisajf ioasjf ioasfjiosfj sij isj isjf iosafj siaofj siaofjsfajfhsfafuajsfjaifhgfahsou as hasif hsoadf hsaifhsuifh siufh dfsgrdstger er tewrt erter t sgfdh er yet ert erwt er gwrwr e erg erlgn erkgherf niheiht iqw huiw hwiue hiuwh tiuh ieu hiuehreiu herui iuerh iweurh wquih fiueh iue hieurh eiruh geui hie iuh iueh ieru hiue iuwe hiueh ih euofhneiuf eiuhe  uer hi  iashui hsu s saf uahfuifh fh 9sh sdf ",
+        src: "https://assets.aceternity.com/demos/babbu-maan.jpeg",
+        ctaText: "Play",
+        ctaLink: "https://ui.aceternity.com/templates",
+        content: () => {
+            return (
+                <p>Babu Maan, a legendary Punjabi singer, is renowned for his soulful
+                    voice and profound lyrics that resonate deeply with his audience. Born
+                    in the viave garnered him a massive fan following both in India
+                    and abroad.
+                    sdjfnkjsd sj fdjklj j ksj kdsjg klsdj klsdj odksjg dsiogj oijios jods joisdjg sogjisjgiojg sj iosjsdjio sjdgidsj ijdg iosjgogjoigjdsgljkdfgdsgsj osdj giodjg oisdgj sdogjdio sidgj ds jsdgj oidsjg sidoj sdj dsij sdajfoisdjf ds jods jodsj oisdj oisd
+                    sd jsdoi jsdo jod jsdog jsdog jsoi jsdo jsdi jsdgj sdj sd jsdoi joi jdsio gjdso ns ns jo so ms
+                    s  j iodj siod jsi jid ji fjo jdio jiojfgdfkg ji
+                    Babu Maan, a legendary Punjabi singer, is renowned for his soulful
+                    voice and profound lyrics that resonate deeply with his audience. Born
+                    in the village of Khant Maanpur in Punjab, India, he has become a
+                    cultural icon in the Punjabi music industry. <br /> <br />His songs
+                    often reflect the struggles and triumphs of everyday life, capturing
+                    the essence of Punjabi culture and traditions. With a career spanning
+                    over two decades, Babu Maan has released numerous hit albums and
+                    singles that have garnered him a massive fan following both in India
+                    and abroad. sdjfnkjsd sj fdjklj j ksj kdsjg klsdj klsdj odksjg dsiogj oijios jods joisdjg sogjisjgiojg sj iosjsdjio sjdgidsj ijdg iosjgogjoigjdsgljkdfgdsgsj osdj giodjg oisdgj sdogjdio sidgj ds jsdgj oidsjg sidoj sdj dsij sdajfoisdjf ds jods jodsj oisdj oisd
+                    sd jsdoi jsdo jod jsdog jsdog jsoi jsdo jsdi jsdgj sdj sd jsdoi joi jdsio gjdso ns ns jo so ms
+                    s  j iodj siod jsi jid ji fjo jdio jiojfgdfkg ji
+                    a legendary Punjabi singer, is renowned for his soulful
+                    voice and profound lyrics that resonate deeply with his audience. Born
+                    in the village of Khant Maanpur in Punjab, India, he has become a
+                    cultural icon in the Punjabi music industry. <br /> <br />His songs
+                    often reflect the struggles and triumphs of everyday life, capturing
+                    the essence of Punjabi culture and traditions. With a career spanning
+                    over two decades, Babu Maan has released numerous hit albums and
+                    singles that have garnered him a massive fan following both in India
+                    and abroad.
+                    sdjfnkjsd sj fdjklj j ksj kdsjg klsdj klsdj odksjg dsiogj oijios jods joisdjg sogjisjgiojg sj iosjsdjio sjdgidsj ijdg iosjgogjoigjdsgljkdfgdsgsj osdj giodjg oisdgj sdogjdio sidgj ds jsdgj oidsjg sidoj sdj dsij sdajfoisdjf ds jods jodsj oisdj oisd
+                    sdjf ds jods jodsj oisdj oisd
+                    sd jsdoi jsdo jod jsdog jsdog jsoi jsdo jsdi jsdgj sdj sd jsdoi joi jdsio gjdso ns ns jo so ms
+                    s  j iodj siod jsi jid ji fjo jdio jiojfgdfkg ji
+                </p>
+            );
+        },
+    }, {
+        description: "Mustafa Zahikjvjhvd",
+        title: "jlkhgjkdi mdfhdft aao",
+        src: "https://assets.aceternity.com/demos/toh-phir-aao.jpeg",
+        ctaText: "Play",
+        ctaLink: "https://ui.aceternity.com/templates",
+        content: () => {
+            return (
+                <p>"Aawarapan", a Bollywood movie starring Emraan Hashmi, is
+                    renowned for its intense storyline and powerful performances. Directed
+                    by Mohit Suri, the film has become a significant work in the Indian
+                    film industry. <br /> <br />The movie explores themes of love,
+                    redemption, and sacrifice, capturing the essence of human emotions and
+                    relationships. With a gripping narrative and memorable music,
+                    "Aawarapan" has garnered a massive fan following both in
+                    India and abroad, solidifying Emraan Hashmi's status as a
+                    versatile actor.
+                </p>
+            );
+        },
+    }, {
+        description: "Mustafa jhvjhb Zajkguyfhhid",
+        title: "dfgjldi mdfhdft aao",
+        src: "https://assets.aceternity.com/demos/toh-phir-aao.jpeg",
+        ctaText: "Play",
+        ctaLink: "https://ui.aceternity.com/templates",
+        content: () => {
+            return (
+                <p>"Aawarapan", a Bollywood movie starring Emraan Hashmi, is
+                    renowned for its intense storyline and powerful performances. Directed
+                    by Mohit Suri, the film has become a significant work in the Indian
+                    film industry. <br /> <br />The movie explores themes of love,
+                    redemption, and sacrifice, capturing the essence of human emotions and
+                    relationships. With a gripping narrative and memorable music,
+                    "Aawarapan" has garnered a massive fan following both in
+                    India and abroad, solidifying Emraan Hashmi's status as a
+                    versatile actor.
+                </p>
+            );
+        },
+    },
+    {
+        // description: "Babbu Maan",
+        title: "Mitran Di Chhatri ajhfdj sadshj s asklfsjka hs josf sdajfoisdjf ioaf sajfiosjf ash ioaj ioh iosfj saioh isofj sioj oiajf oisajf ioasjf ioasfjiosfj sij isj isjf iosafj siaofj siaofjsfajfhsfafuajsfjaifhgfahsou as hasif hsoadf hsaifhsuifh siufh asiufhsafhsiafhsauifhasuifhsaifhdsaufhsfhui sdggsg sgfdgsdfg sdfasfdsa fsdf asfasdf asdfasf saf asf sdafasdf sfgsdgsdfgdfsg dsgsdfg dfsgrdstger er tewrt erter t sgfdh er yet ert erwt er gwrwr e erg erlgn erkgherf niheiht  iashui hsu s saf uahfuifh fh 9sh ,nmyt ",
+        src: "https://assets.aceternity.com/demos/babbu-maan.jpeg",
+        ctaText: "Play",
+        ctaLink: "https://ui.aceternity.com/templates",
+        content: () => {
+            return (
+                <p>Babu Maan, a legendary Punjabi singer, is renowned for his soulful
+                    voice and profound lyrics that resonate deeply with his audience. Born
+                    in the village of Khant Maanpur in Punjab, India, he has become a
+                    cultural icon in the Punjabi music industry. <br /> <br />His songs
+                    often reflect the struggles and triumphs of everyday life, capturing
+                    the essence of Punjabi culture and traditions. With a career spanning
+                    over two decades, Babu Maan has released numerous hit albums and
+                    singles that have garnered him a massive fan following both in India
+                    and abroad.
+                    sdjfnkjsd sj fdjklj j ksj kdsjg klsdj klsdj odksjg dsiogj oijios jods joisdjg sogjisjgiojg sj iosjsdjio sjdgidsj ijdg iosjgogjoigjdsgljkdfgdsgsj osdj giodjg oisdgj sdogjdio sidgj ds jsdgj oidsjg sidoj sdj dsij sdajfoisdjf ds jods jodsj oisdj oisd
+                    sd jsdoi jsdo jod jsdog jsdog jsoi jsdo jsdi jsdgj sdj sd jsdoi joi jdsio gjdso ns ns jo so ms
+                    s  j iodj siod jsi jid ji fjo jdio jiojfgdfkg ji
+                    Babu Maan, a legendary Punjabi singer, is renowned for his soulful
+                    voice and profound lyrics that resonate deeply with his audience. Born
+                    in the village of Khant Maanpur in Punjab, India, he has become a
+                    cultural icon in the Punjabi music industry. <br /> <br />His songs
+                    often reflect the struggles and triumphs of everyday life, capturing
+                    the essence of Punjabi culture and traditions. With a career spanning
+                    over two decades, Babu Maan has released numerous hit albums and
+                    singles that have garnered him a massive fan following both in India
+                    and abroad. sdjfnkjsd sj fdjklj j ksj kdsjg klsdj klsdj odksjg dsiogj oijios jods joisdjg sogjisjgiojg sj iosjsdjio sjdgidsj ijdg iosjgogjoigjdsgljkdfgdsgsj osdj giodjg oisdgj sdogjdio sidgj ds jsdgj oidsjg sidoj sdj dsij sdajfoisdjf ds jods jodsj oisdj oisd
+                    sd jsdoi jsdo jod jsdog jsdog jsoi jsdo jsdi jsdgj sdj sd jsdoi joi jdsio gjdso ns ns jo so ms
+                    s  j iodj siod jsi jid ji fjo jdio jiojfgdfkg ji
+                    a legendary Punjabi singer, is renowned for his soulful
+                    voice and profound lyrics that resonate deeply with his audience. Born
+                    in the village of Khant Maanpur in Punjab, India, he has become a
+                    cultural icon in the Punjabi music industry. <br /> <br />His songs
+                    often reflect the struggles and triumphs of everyday life, capturing
+                    the essence of Punjabi culture and traditions. With a career spanning
+                    over two decades, Babu Maan has released numerous hit albums and
+                    singles that have garnered him a massive fan following both in India
+                    and abroad.
+                    sdjfnkjsd sj fdjklj j ksj kdsjg klsdj klsdj odksjg dsiogj oijios jods joisdjg sogjisjgiojg sj iosjsdjio sjdgidsj ijdg iosjgogjoigjdsgljkdfgdsgsj osdj giodjg oisdgj sdogjdio sidgj ds jsdgj oidsjg sidoj sdj dsij sdajfoisdjf ds jods jodsj oisdj oisd
+                    sd jsdoi jsdo jod jsdog jsdog jsoi jsdo jsdi jsdgj sdj sd jsdoi joi jdsio gjdso ns ns jo so ms
+                    s  j iodj siod jsi jid ji fjo jdio jiojfgdfkg ji
+                    Babu Maan, a legendary Punjabi singer, is renowned for his soulful
+                    voice and profound lyrics that resonate deeply with his audience. Born
+                    in the village of Khant Maanpur in Punjab, India, he has become a
+                    cultural icon in the Punjabi music industry. <br /> <br />His songs
+                    often reflect the struggles and triumphs of everyday life, capturing
+                    the essence of Punjabi culture and traditions. With a career spanning
+                    over two decades, Babu Maan has released numerous hit albums and
+                    singles that have garnered him a massive fan following both in India
+                    and abroad. sdjfnkjsd sj fdjklj j ksj kdsjg klsdj klsdj odksjg dsiogj oijios jods joisdjg sogjisjgiojg sj iosjsdjio sjdgidsj ijdg iosjgogjoigjdsgljkdfgdsgsj osdj giodjg oisdgj sdogjdio sidgj ds jsdgj oidsjg sidoj sdj dsij sdajfoisdjf ds jods jodsj oisdj oisd
+                    sd jsdoi jsdo jod jsdog jsdog jsoi jsdo jsdi jsdgj sdj sd jsdoi joi jdsio gjdso ns ns jo so ms
+                    s  j iodj siod jsi jid ji fjo jdio jiojfgdfkg ji
+                </p>
+            );
+        },
+    },
+    {
+        description: "Mustafa Zahid",
+        title: "jldi mfghd  dffgt aao",
+        src: "https://assets.aceternity.com/demos/toh-phir-aao.jpeg",
+        ctaText: "Play",
+        ctaLink: "https://ui.aceternity.com/templates",
+        content: () => {
+            return (
+                <p>"Aawarapan", a Bollywood movie starring Emraan Hashmi, is
+                    renowned for its intense storyline and powerful performances. Directed
+                    by Mohit Suri, the film has become a significant work in the Indian
+                    film industry. <br /> <br />The movie explores themes of love,
+                    redemption, and sacrifice, capturing the essence of human emotions and
+                    relationships. With a gripping narrative and memorable music,
+                    "Aawarapan" has garnered a massive fan following both in
+                    India and abroad, solidifying Emraan Hashmi's status as a
+                    versatile actor.
+                </p>
+            );
+        },
+    },
+    {
+        // description: "Babbu Maan",
+        title: "Mitran Di Chhatri ajhfdj sadshj s asklfsjka hs josf sdajfoisdjf ioaf sajfiosjf ash ioaj ioh iosfj saioh isofj sioj oiajf oisajf ioasjf ioasfjiosfj sij isj isjf iosafj siaofj as hasif hsoadf hsaifhsuifh siufh  sdggsg sgfdgsdfg sdfasfdsa fsdf asfasdf asdfasf saf asf sdafasdf sfgsdgsdfgdfsg dsgsdfg dfsgrdstger er tewrt erter t sgfdh er yet ert erwt er gwrwr e erg erlgn erkgherf niheiht iqw huiw hwiue hiuwh tiuh ieu hiuehreiu herui iuerh iweurh wquih fiueh iue hieurh eiruh geui hie iuh iueh ieru hiue iuwe hiueh ih euofhneiuf eiuhe  uer hi  iashui hsu s saf uahfuifh 64 646 46 456 464 64 65 46 464 64 6fh 9sh",
+        src: "https://assets.aceternity.com/demos/babbu-maan.jpeg",
+        ctaText: "Play",
+        ctaLink: "https://ui.aceternity.com/templates",
+        content: () => {
+            return (
+                <p>Babu Maan, a legendary Punjabi singer, is renowned for his soulful
+                    voice and profound lyrics that resonate deeply with his audience. Born
+                    in the village of Khant Maanpur in Punjab, India, he has become a
+                    cultural icon in the Punjabi music industry. <br /> <br />His songs
+                    often reflect the struggles and triumphs of everyday life, capturing
+                    the essence of Punjabi culture and traditions. With a career spanning
+                    over two decades, Babu Maan has released numerous hit albums and
+                    singles that have garnered him a massive fan following both in India
+                    and abroad.
+                    sdjfnkjsd sj fdjklj j ksj kdsjg klsdj klsdj odksjg dsiogj oijios jods joisdjg sogjisjgiojg sj iosjsdjio sjdgidsj ijdg iosjgogjoigjdsgljkdfgdsgsj osdj giodjg oisdgj sdogjdio sidgj ds jsdgj oidsjg sidoj sdj dsij sdajfoisdjf ds jods jodsj oisdj oisd
+                    sd jsdoi jsdo jod jsdog jsdog jsoi jsdo jsdi jsdgj sdj sd jsdoi joi jdsio gjdso ns ns jo so ms
+                    s  j iodj siod jsi jid ji fjo jdio jiojfgdfkg ji
+                    Babu Maan, a legendary Punjabi singer, is renowned for his soulful
+                    voice and profound lyrics that resonate deeply with his audience. Born
+                    in the village of Khant Maanpur in Punjab, India, he has become a
+                    cultural icon in the Punjabi music industry. <br /> <br />His songs
+                    often reflect the struggles and triumphs of everyday life, capturing
+                    the essence of Punjabi culture and traditions. With a career spanning
+                    over two decades, Babu Maan has released numerous hit albums and
+                    singles that have garnered him a massive fan following both in India
+                    and abroad. sdjfnkjsd sj fdjklj j ksj kdsjg klsdj klsdj odksjg dsiogj oijios jods joisdjg sogjisjgiojg sj iosjsdjio sjdgidsj ijdg iosjgogjoigjdsgljkdfgdsgsj osdj giodjg oisdgj sdogjdio sidgj ds jsdgj oidsjg sidoj sdj dsij sdajfoisdjf ds jods jodsj oisdj oisd
+                    sd jsdoi jsdo jod jsdog jsdog jsoi jsdo jsdi jsdgj sdj sd jsdoi joi jdsio gjdso ns ns jo so ms
+                    s  j iodj siod jsi jid ji fjo jdio jiojfgdfkg ji
+                    a legendary Punjabi singer, is renowned for his soulful
+                    voice and profound lyrics that resonate deeply with his audience. Born
+                    in the village of Khant Maanpur in Punjab, India, he has become a
+                    cultural icon in the Punjabi music industry. <br /> <br />His songs
+                    often reflect the struggles and triumphs of everyday life, capturing
+                    the essence of Punjabi culture and traditions. With a career spanning
+                    over two decades, Babu Maan has released numerous hit albums and
+                    singles that have garnered him a massive fan following both in India
+                    and abroad.
+                    sdjfnkjsd sj fdjklj j ksj kdsjg klsdj klsdj odksjg dsiogj oijios jods joisdjg sogjisjgiojg sj iosjsdjio sjdgidsj ijdg iosjgogjoigjdsgljkdfgdsgsj osdj giodjg oisdgj sdogjdio sidgj ds jsdgj oidsjg sidoj sdj dsij sdajfoisdjf ds jods jodsj oisdj oisd
+                    sd jsdoi jsdo jod jsdog jsdog jsoi jsdo jsdi jsdgj sdj sd jsdoi joi jdsio gjdso ns ns jo so ms
+                    s  j iodj siod jsi jid ji fjo jdio jiojfgdfkg ji
+                    Babu Maan, a legendary Punjabi singer, is renowned for his soulful
+                    voice and profound lyrics that resonate deeply with his audience. Born
+                    in the village of Khant Maanpur in Punjab, India, he has become a
+                    cultural icon in the Punjabi music industry. <br /> <br />His songs
+                    often reflect the struggles and triumphs of everyday life, capturing
+                    the essence of Punjabi culture and traditions. With a career spanning
+                    over two decades, Babu Maan has released numerous hit albums and
+                    singles that have garnered him a massive fan following both in India
+                    and abroad. sdjfnkjsd sj fdjklj j ksj kdsjg klsdj klsdj odksjg dsiogj oijios jods joisdjg sogjisjgiojg sj iosjsdjio sjdgidsj ijdg iosjgogjoigjdsgljkdfgdsgsj osdj giodjg oisdgj sdogjdio sidgj ds jsdgj oidsjg sidoj sdj dsij sdajfoisdjf ds jods jodsj oisdj oisd
+                    sd jsdoi jsdo jod jsdog jsdog jsoi jsdo jsdi jsdgj sdj sd jsdoi joi jdsio gjdso ns ns jo so ms
+                    s  j iodj siod jsi jid ji fjo jdio jiojfgdfkg ji
+                </p>
+            );
+        },
+    },
+    {
+        description: "Lana Del Rey",
+        title: "coming fsdfdsggast",
+        // src: "https://assets.aceternity.com/demos/lana-del-rey.jpeg",
+        ctaText: "Play",
+        ctaLink: "https://ui.aceternity.com/templates",
+        content: () => {
+            return (
+                <p>Lana Del Rey, an iconic American singer-songwriter, is celebrated for
+                    her melancholic and cinematic music style. Born Elizabeth Woolridge
+                    Grant in New York City, she has captivated audiences worldwide with
+                    her haunting voice and introspective lyrics. <br /> <br />Her songs
+                    often explore themes of tragic romance, glamour, and melancholia,
+                    drawing inspiration from both contemporary and vintage pop culture.
+                    With a career that has seen numerous critically acclaimed albums, Lana
+                    Del Rey has established herself as a unique and influential figure in
+                    the music industry, earning a dedicated fan base and numerous
+                    accolades.
+                </p>
+            );
+        },
+    }, 
+    {
+        // description: "Babbu Maan",
+        title: "Mitran Di Chhatri ajhfdj sadshj s asklfsjka hs josf sdajfoisdjf ioaf sajfiosjf ash ioaj ioh iosfj saioh isofj sioj oiajf oisajf ioasjf ioasfjiosfj sij isj isjf iosafj siaofj siaofjsfajfhsfafuajsfjaifhgfahsou as hasif hsoadf hsaifhsuifh siufh 5 5456 16 1654 651 56 46 651 651 561 561 651asiufhsafhsiafhsauifhasuifhsaifhdsaufhsfhui sdggsg sgfdgsdfg sdfasfdsa fsdf asfasdf asdfasf saf asf sdafasdf sfgsdgsdfgdfsg dsgsdfg dfsgrdstger er tewrt erter t sgfdh er yet ert erwt er gwrwr e erg erlgn erkgherf niheiht iqw huiw hwiue hiuwh tiuh ieu hiuehreiu herui iuerh iweurh wquih fiueh iue hieurh eiruh geui hie iuh iueh ieru hiue iuwe hiueh ih euofhneiuf eiuhe  uer hi  iashui hsu s saf uahfuifh fh 9sh",
+        src: "https://assets.aceternity.com/demos/babbu-maan.jpeg",
+        ctaText: "Play",
+        ctaLink: "https://ui.aceternity.com/templates",
+        content: () => {
+            return (
+                <p>Babu Maan, a legendary Punjabi singer, is renowned for his soulful
+                    voice and profound lyrics that resonate deeply with his audience. Born
+                    in the village of Khant Maanpur in Punjab, India, he has become a
+                    cultural icon in the Punjabi music industry. <br /> <br />His songs
+                    often reflect the struggles and triumphs of everyday life, capturing
+                    the essence of Punjabi culture and traditions. With a career spanning
+                    over two decades, Babu Maan has released numerous hit albums and
+                    singles that have garnered him a massive fan following both in India
+                    and abroad.
+                    sdjfnkjsd sj fdjklj j ksj kdsjg klsdj klsdj odksjg dsiogj oijios jods joisdjg sogjisjgiojg sj iosjsdjio sjdgidsj ijdg iosjgogjoigjdsgljkdfgdsgsj osdj giodjg oisdgj sdogjdio sidgj ds jsdgj oidsjg sidoj sdj dsij sdajfoisdjf ds jods jodsj oisdj oisd
+                    sd jsdoi jsdo jod jsdog jsdog jsoi jsdo jsdi jsdgj sdj sd jsdoi joi jdsio gjdso ns ns jo so ms
+                    s  j iodj siod jsi jid ji fjo jdio jiojfgdfkg ji
+                    Babu Maan, a legendary Punjabi singer, is renowned for his soulful
+                    voice and profound lyrics that resonate deeply with his audience. Born
+                    in the village of Khant Maanpur in Punjab, India, he has become a
+                    cultural icon in the Punjabi music industry. <br /> <br />His songs
+                    often reflect the struggles and triumphs of everyday life, capturing
+                    the essence of Punjabi culture and traditions. With a career spanning
+                    over two decades, Babu Maan has released numerous hit albums and
+                    singles that have garnered him a massive fan following both in India
+                    and abroad. sdjfnkjsd sj fdjklj j ksj kdsjg klsdj klsdj odksjg dsiogj oijios jods joisdjg sogjisjgiojg sj iosjsdjio sjdgidsj ijdg iosjgogjoigjdsgljkdfgdsgsj osdj giodjg oisdgj sdogjdio sidgj ds jsdgj oidsjg sidoj sdj dsij sdajfoisdjf ds jods jodsj oisdj oisd
+                    sd jsdoi jsdo jod jsdog jsdog jsoi jsdo jsdi jsdgj sdj sd jsdoi joi jdsio gjdso ns ns jo so ms
+                    s  j iodj siod jsi jid ji fjo jdio jiojfgdfkg ji
+                    a legendary Punjabi singer, is renowned for his soulful
+                    voice and profound lyrics that resonate deeply with his audience. Born
+                    in the village of Khant Maanpur in Punjab, India, he has become a
+                    cultural icon in the Punjabi music industry. <br /> <br />His songs
+                    often reflect the struggles and triumphs of everyday life, capturing
+                    the essence of Punjabi culture and traditions. With a career spanning
+                    over two decades, Babu Maan has released numerous hit albums and
+                    singles that have garnered him a massive fan following both in India
+                    and abroad.
+                    sdjfnkjsd sj fdjklj j ksj kdsjg klsdj klsdj odksjg dsiogj oijios jods joisdjg sogjisjgiojg sj iosjsdjio sjdgidsj ijdg iosjgogjoigjdsgljkdfgdsgsj osdj giodjg oisdgj sdogjdio sidgj ds jsdgj oidsjg sidoj sdj dsij sdajfoisdjf ds jods jodsj oisdj oisd
+                    sd jsdoi jsdo jod jsdog jsdog jsoi jsdo jsdi jsdgj sdj sd jsdoi joi jdsio gjdso ns ns jo so ms
+                    s  j iodj siod jsi jid ji fjo jdio jiojfgdfkg ji
+                    Babu Maan, a legendary Punjabi singer, is renowned for his soulful
+                    voice and profound lyrics that resonate deeply with his audience. Born
+                    in the village of Khant Maanpur in Punjab, India, he has become a
+                    cultural icon in the Punjabi music industry. <br /> <br />His songs
+                    often reflect the struggles and triumphs of everyday life, capturing
+                    the essence of Punjabi culture and traditions. With a career spanning
+                    over two decades, Babu Maan has released numerous hit albums and
+                    singles that have garnered him a massive fan following both in India
+                    and abroad. sdjfnkjsd sj fdjklj j ksj kdsjg klsdj klsdj odksjg dsiogj oijios jods joisdjg sogjisjgiojg sj iosjsdjio sjdgidsj ijdg iosjgogjoigjdsgljkdfgdsgsj osdj giodjg oisdgj sdogjdio sidgj ds jsdgj oidsjg sidoj sdj dsij sdajfoisdjf ds jods jodsj oisdj oisd
+                    sd jsdoi jsdo jod jsdog jsdog jsoi jsdo jsdi jsdgj sdj sd jsdoi joi jdsio gjdso ns ns jo so ms
+                    s  j iodj siod jsi jid ji fjo jdio jiojfgdfkg ji
+                </p>
+            );
+        },
+    },{
+        description: "Lana Del Rey",
+        title: "comindgsdgfdsgg fast",
         // src: "https://assets.aceternity.com/demos/lana-del-rey.jpeg",
         ctaText: "Play",
         ctaLink: "https://ui.aceternity.com/templates",
@@ -362,8 +867,65 @@ const cards = [
         },
     },
     {
+        // description: "Babbu Maan",
+        title: "Mitran Di Chhatri ajhfdj sadshj s asklfsjka hs josf sdajfoisdjf ioaf sajfiosjf ash ioaj ioh iosfj saioh isofj sioj oiajf oisajf wertyuu te yuty  yt ryy uy thl h g   dhhjjkyj yh ffkhdhjjytjrthshhd  46465141651561 erter t sgfdh er yet ert erwt er gwrwr e erg erlgn erkgherf niheiht iqw huiw hwiue hiuwh tiuh ieu hiuehreiu herui iuerh iweurh wquih fiueh iue hieurh eiruh geui hie iuh iueh ieru hiue iuwe hiueh ih euofhneiuf eiuhe  uer hi  iashui hsu s saf uahfuifh fh 9sh",
+        src: "https://assets.aceternity.com/demos/babbu-maan.jpeg",
+        ctaText: "Play",
+        ctaLink: "https://ui.aceternity.com/templates",
+        content: () => {
+            return (
+                <p>Babu Maan, a legendary Punjabi singer, is renowned for his soulful
+                    voice and profound lyrics that resonate deeply with his audience. Born
+                    in the village of Khant Maanpur in Punjab, India, he has become a
+                    cultural icon in the Punjabi music industry. <br /> <br />His songs
+                    often reflect the struggles and triumphs of everyday life, capturing
+                    the essence of Punjabi culture and traditions. With a career spanning
+                    over two decades, Babu Maan has released numerous hit albums and
+                    singles that have garnered him a massive fan following both in India
+                    and abroad.
+                    sdjfnkjsd sj fdjklj j ksj kdsjg klsdj klsdj odksjg dsiogj oijios jods joisdjg sogjisjgiojg sj iosjsdjio sjdgidsj ijdg iosjgogjoigjdsgljkdfgdsgsj osdj giodjg oisdgj sdogjdio sidgj ds jsdgj oidsjg sidoj sdj dsij sdajfoisdjf ds jods jodsj oisdj oisd
+                    sd jsdoi jsdo jod jsdog jsdog jsoi jsdo jsdi jsdgj sdj sd jsdoi joi jdsio gjdso ns ns jo so ms
+                    s  j iodj siod jsi jid ji fjo jdio jiojfgdfkg ji
+                    Babu Maan, a legendary Punjabi singer, is renowned for his soulful
+                    voice and profound lyrics that resonate deeply with his audience. Born
+                    in the village of Khant Maanpur in Punjab, India, he has become a
+                    cultural icon in the Punjabi music industry. <br /> <br />His songs
+                    often reflect the struggles and triumphs of everyday life, capturing
+                    the essence of Punjabi culture and traditions. With a career spanning
+                    over two decades, Babu Maan has released numerous hit albums and
+                    singles that have garnered him a massive fan following both in India
+                    and abroad. sdjfnkjsd sj fdjklj j ksj kdsjg klsdj klsdj odksjg dsiogj oijios jods joisdjg sogjisjgiojg sj iosjsdjio sjdgidsj ijdg iosjgogjoigjdsgljkdfgdsgsj osdj giodjg oisdgj sdogjdio sidgj ds jsdgj oidsjg sidoj sdj dsij sdajfoisdjf ds jods jodsj oisdj oisd
+                    sd jsdoi jsdo jod jsdog jsdog jsoi jsdo jsdi jsdgj sdj sd jsdoi joi jdsio gjdso ns ns jo so ms
+                    s  j iodj siod jsi jid ji fjo jdio jiojfgdfkg ji
+                    a legendary Punjabi singer, is renowned for his soulful
+                    voice and profound lyrics that resonate deeply with his audience. Born
+                    in the village of Khant Maanpur in Punjab, India, he has become a
+                    cultural icon in the Punjabi music industry. <br /> <br />His songs
+                    often reflect the struggles and triumphs of everyday life, capturing
+                    the essence of Punjabi culture and traditions. With a career spanning
+                    over two decades, Babu Maan has released numerous hit albums and
+                    singles that have garnered him a massive fan following both in India
+                    and abroad.
+                    sdjfnkjsd sj fdjklj j ksj kdsjg klsdj klsdj odksjg dsiogj oijios jods joisdjg sogjisjgiojg sj iosjsdjio sjdgidsj ijdg iosjgogjoigjdsgljkdfgdsgsj osdj giodjg oisdgj sdogjdio sidgj ds jsdgj oidsjg sidoj sdj dsij sdajfoisdjf ds jods jodsj oisdj oisd
+                    sd jsdoi jsdo jod jsdog jsdog jsoi jsdo jsdi jsdgj sdj sd jsdoi joi jdsio gjdso ns ns jo so ms
+                    s  j iodj siod jsi jid ji fjo jdio jiojfgdfkg ji
+                    Babu Maan, a legendary Punjabi singer, is renowned for his soulful
+                    voice and profound lyrics that resonate deeply with his audience. Born
+                    in the village of Khant Maanpur in Punjab, India, he has become a
+                    cultural icon in the Punjabi music industry. <br /> <br />His songs
+                    often reflect the struggles and triumphs of everyday life, capturing
+                    the essence of Punjabi culture and traditions. With a career spanning
+                    over two decades, Babu Maan has released numerous hit albums and
+                    singles that have garnered him a massive fan following both in India
+                    and abroad. sdjfnkjsd sj fdjklj j ksj kdsjg klsdj klsdj odksjg dsiogj oijios jods joisdjg sogjisjgiojg sj iosjsdjio sjdgidsj ijdg iosjgogjoigjdsgljkdfgdsgsj osdj giodjg oisdgj sdogjdio sidgj ds jsdgj oidsjg sidoj sdj dsij sdajfoisdjf ds jods jodsj oisdj oisd
+                    sd jsdoi jsdo jod jsdog jsdog jsoi jsdo jsdi jsdgj sdj sd jsdoi joi jdsio gjdso ns ns jo so ms
+                    s  j iodj siod jsi jid ji fjo jdio jiojfgdfkg ji
+                </p>
+            );
+        },
+    }, {
         description: "Lana Del Rey",
-        title: "Summertime Sadness",
+        title: "comiasdfsdsfgng sdg d dsg sd  fast",
         // src: "https://assets.aceternity.com/demos/lana-del-rey.jpeg",
         ctaText: "Play",
         ctaLink: "https://ui.aceternity.com/templates",
@@ -384,8 +946,66 @@ const cards = [
         },
     },
     {
+        // description: "Babbu Maan",
+        title: "Mitran f fh sdgd fsdf d dsg dfg dsg g rtu uyiyuioiu ysiufh asiufhsafhsiafhsauifhasuifhsaifhdsaufhsfhui sdggsg sgfdgsdfg sdfasfdsa fsdf asfasdf asdfasf saf asf sdafasdf sfgsdgsdfgdfsg dsgsdfg dfsgrdstger er tewrt erter t sgfdh er yet ert erwt er gwrwr e erg erlgn erkgherf niheiht iqw huiw hwiue hiuwh tiuh ieu hiuehreiu herui iuerh iweurh wquih fiueh iue hieurh eiruh geui hie iuh iueh ieru hiue iuwe hiueh ih euofhneiuf eiuhe  uer hi  iashui hsu s saf uahfuifh fh 9sh",
+        src: "https://assets.aceternity.com/demos/babbu-maan.jpeg",
+        ctaText: "Play",
+        ctaLink: "https://ui.aceternity.com/templates",
+        content: () => {
+            return (
+                <p>Babu Maan, a legendary Punjabi singer, is renowned for his soulful
+                    voice and profound lyrics that resonate deeply with his audience. Born
+                    in the village of Khant Maanpur in Punjab, India, he has become a
+                    cultural icon in the Punjabi music industry. <br /> <br />His songs
+                    often reflect the struggles and triumphs of everyday life, capturing
+                    the essence of Punjabi culture and traditions. With a career spanning
+                    over two decades, Babu Maan has released numerous hit albums and
+                    singles that have garnered him a massive fan following both in India
+                    and abroad.
+                    sdjfnkjsd sj fdjklj j ksj kdsjg klsdj klsdj odksjg dsiogj oijios jods joisdjg sogjisjgiojg sj iosjsdjio sjdgidsj ijdg iosjgogjoigjdsgljkdfgdsgsj osdj giodjg oisdgj sdogjdio sidgj ds jsdgj oidsjg sidoj sdj dsij sdajfoisdjf ds jods jodsj oisdj oisd
+                    sd jsdoi jsdo jod jsdog jsdog jsoi jsdo jsdi jsdgj sdj sd jsdoi joi jdsio gjdso ns ns jo so ms
+                    s  j iodj siod jsi jid ji fjo jdio jiojfgdfkg ji
+                    Babu Maan, a legendary Punjabi singer, is renowned for his soulful
+                    voice and profound lyrics that resonate deeply with his audience. Born
+                    in the village of Khant Maanpur in Punjab, India, he has become a
+                    cultural icon in the Punjabi music industry. <br /> <br />His songs
+                    often reflect the struggles and triumphs of everyday life, capturing
+                    the essence of Punjabi culture and traditions. With a career spanning
+                    over two decades, Babu Maan has released numerous hit albums and
+                    singles that have garnered him a massive fan following both in India
+                    and abroad. sdjfnkjsd sj fdjklj j ksj kdsjg klsdj klsdj odksjg dsiogj oijios jods joisdjg sogjisjgiojg sj iosjsdjio sjdgidsj ijdg iosjgogjoigjdsgljkdfgdsgsj osdj giodjg oisdgj sdogjdio sidgj ds jsdgj oidsjg sidoj sdj dsij sdajfoisdjf ds jods jodsj oisdj oisd
+                    sd jsdoi jsdo jod jsdog jsdog jsoi jsdo jsdi jsdgj sdj sd jsdoi joi jdsio gjdso ns ns jo so ms
+                    s  j iodj siod jsi jid ji fjo jdio jiojfgdfkg ji
+                    a legendary Punjabi singer, is renowned for his soulful
+                    voice and profound lyrics that resonate deeply with his audience. Born
+                    in the village of Khant Maanpur in Punjab, India, he has become a
+                    cultural icon in the Punjabi music industry. <br /> <br />His songs
+                    often reflect the struggles and triumphs of everyday life, capturing
+                    the essence of Punjabi culture and traditions. With a career spanning
+                    over two decades, Babu Maan has released numerous hit albums and
+                    singles that have garnered him a massive fan following both in India
+                    and abroad.
+                    sdjfnkjsd sj fdjklj j ksj kdsjg klsdj klsdj odksjg dsiogj oijios jods joisdjg sogjisjgiojg sj iosjsdjio sjdgidsj ijdg iosjgogjoigjdsgljkdfgdsgsj osdj giodjg oisdgj sdogjdio sidgj ds jsdgj oidsjg sidoj sdj dsij sdajfoisdjf ds jods jodsj oisdj oisd
+                    sd jsdoi jsdo jod jsdog jsdog jsoi jsdo jsdi jsdgj sdj sd jsdoi joi jdsio gjdso ns ns jo so ms
+                    s  j iodj siod jsi jid ji fjo jdio jiojfgdfkg ji
+                    Babu Maan, a legendary Punjabi singer, is renowned for his soulful
+                    voice and profound lyrics that resonate deeply with his audience. Born
+                    in the village of Khant Maanpur in Punjab, India, he has become a
+                    cultural icon in the Punjabi music industry. <br /> <br />His songs
+                    often reflect the struggles and triumphs of everyday life, capturing
+                    the essence of Punjabi culture and traditions. With a career spanning
+                    over two decades, Babu Maan has released numerous hit albums and
+                    singles that have garnered him a massive fan following both in India
+                    and abroad. sdjfnkjsd sj fdjklj j ksj kdsjg klsdj klsdj odksjg dsiogj oijios jods joisdjg sogjisjgiojg sj iosjsdjio sjdgidsj ijdg iosjgogjoigjdsgljkdfgdsgsj osdj giodjg oisdgj sdogjdio sidgj ds jsdgj oidsjg sidoj sdj dsij sdajfoisdjf ds jods jodsj oisdj oisd
+                    sd jsdoi jsdo jod jsdog jsdog jsoi jsdo jsdi jsdgj sdj sd jsdoi joi jdsio gjdso ns ns jo so ms
+                    s  j iodj siod jsi jid ji fjo jdio jiojfgdfkg ji
+                </p>
+            );
+        },
+    },
+    {
         description: "Lana Del Rey",
-        title: "Summertime Sadness",
+        title: "comiasdfsdsfgng dh dg  sdg d dsg sd  fast",
         // src: "https://assets.aceternity.com/demos/lana-del-rey.jpeg",
         ctaText: "Play",
         ctaLink: "https://ui.aceternity.com/templates",
@@ -406,8 +1026,65 @@ const cards = [
         },
     },
     {
+        // description: "Babbu Maan",
+        title: "Mitran Di Chhatri ajhfdj sadshj s asklfsjka hs josf sdajfoisdjf ioaf sajfiosjf ash ioaj ioh iosfj saioh isofj sioj oiajf oisajf ioasjf ioasfjiosfj sij isj isjf iosafj siaofj siaofjsfajfhsfafuajsfjaifhgfahsou as hasif hsoadf hsaifhsuifh siufh dfg dsg s ds dsfgdfgdfsg dg dsgdf sdg j kuiktutyuyrt uwe hiueh ih euofhneiuf eiuhe  uer hi  iashui hsu s saf uahfuifh fh 9sh",
+        src: "https://assets.aceternity.com/demos/babbu-maan.jpeg",
+        ctaText: "Play",
+        ctaLink: "https://ui.aceternity.com/templates",
+        content: () => {
+            return (
+                <p>Babu Maan, a legendary Punjabi singer, is renowned for his soulful
+                    voice and profound lyrics that resonate deeply with his audience. Born
+                    in the village of Khant Maanpur in Punjab, India, he has become a
+                    cultural icon in the Punjabi music industry. <br /> <br />His songs
+                    often reflect the struggles and triumphs of everyday life, capturing
+                    the essence of Punjabi culture and traditions. With a career spanning
+                    over two decades, Babu Maan has released numerous hit albums and
+                    singles that have garnered him a massive fan following both in India
+                    and abroad.
+                    sdjfnkjsd sj fdjklj j ksj kdsjg klsdj klsdj odksjg dsiogj oijios jods joisdjg sogjisjgiojg sj iosjsdjio sjdgidsj ijdg iosjgogjoigjdsgljkdfgdsgsj osdj giodjg oisdgj sdogjdio sidgj ds jsdgj oidsjg sidoj sdj dsij sdajfoisdjf ds jods jodsj oisdj oisd
+                    sd jsdoi jsdo jod jsdog jsdog jsoi jsdo jsdi jsdgj sdj sd jsdoi joi jdsio gjdso ns ns jo so ms
+                    s  j iodj siod jsi jid ji fjo jdio jiojfgdfkg ji
+                    Babu Maan, a legendary Punjabi singer, is renowned for his soulful
+                    voice and profound lyrics that resonate deeply with his audience. Born
+                    in the village of Khant Maanpur in Punjab, India, he has become a
+                    cultural icon in the Punjabi music industry. <br /> <br />His songs
+                    often reflect the struggles and triumphs of everyday life, capturing
+                    the essence of Punjabi culture and traditions. With a career spanning
+                    over two decades, Babu Maan has released numerous hit albums and
+                    singles that have garnered him a massive fan following both in India
+                    and abroad. sdjfnkjsd sj fdjklj j ksj kdsjg klsdj klsdj odksjg dsiogj oijios jods joisdjg sogjisjgiojg sj iosjsdjio sjdgidsj ijdg iosjgogjoigjdsgljkdfgdsgsj osdj giodjg oisdgj sdogjdio sidgj ds jsdgj oidsjg sidoj sdj dsij sdajfoisdjf ds jods jodsj oisdj oisd
+                    sd jsdoi jsdo jod jsdog jsdog jsoi jsdo jsdi jsdgj sdj sd jsdoi joi jdsio gjdso ns ns jo so ms
+                    s  j iodj siod jsi jid ji fjo jdio jiojfgdfkg ji
+                    a legendary Punjabi singer, is renowned for his soulful
+                    voice and profound lyrics that resonate deeply with his audience. Born
+                    in the village of Khant Maanpur in Punjab, India, he has become a
+                    cultural icon in the Punjabi music industry. <br /> <br />His songs
+                    often reflect the struggles and triumphs of everyday life, capturing
+                    the essence of Punjabi culture and traditions. With a career spanning
+                    over two decades, Babu Maan has released numerous hit albums and
+                    singles that have garnered him a massive fan following both in India
+                    and abroad.
+                    sdjfnkjsd sj fdjklj j ksj kdsjg klsdj klsdj odksjg dsiogj oijios jods joisdjg sogjisjgiojg sj iosjsdjio sjdgidsj ijdg iosjgogjoigjdsgljkdfgdsgsj osdj giodjg oisdgj sdogjdio sidgj ds jsdgj oidsjg sidoj sdj dsij sdajfoisdjf ds jods jodsj oisdj oisd
+                    sd jsdoi jsdo jod jsdog jsdog jsoi jsdo jsdi jsdgj sdj sd jsdoi joi jdsio gjdso ns ns jo so ms
+                    s  j iodj siod jsi jid ji fjo jdio jiojfgdfkg ji
+                    Babu Maan, a legendary Punjabi singer, is renowned for his soulful
+                    voice and profound lyrics that resonate deeply with his audience. Born
+                    in the village of Khant Maanpur in Punjab, India, he has become a
+                    cultural icon in the Punjabi music industry. <br /> <br />His songs
+                    often reflect the struggles and triumphs of everyday life, capturing
+                    the essence of Punjabi culture and traditions. With a career spanning
+                    over two decades, Babu Maan has released numerous hit albums and
+                    singles that have garnered him a massive fan following both in India
+                    and abroad. sdjfnkjsd sj fdjklj j ksj kdsjg klsdj klsdj odksjg dsiogj oijios jods joisdjg sogjisjgiojg sj iosjsdjio sjdgidsj ijdg iosjgogjoigjdsgljkdfgdsgsj osdj giodjg oisdgj sdogjdio sidgj ds jsdgj oidsjg sidoj sdj dsij sdajfoisdjf ds jods jodsj oisdj oisd
+                    sd jsdoi jsdo jod jsdog jsdog jsoi jsdo jsdi jsdgj sdj sd jsdoi joi jdsio gjdso ns ns jo so ms
+                    s  j iodj siod jsi jid ji fjo jdio jiojfgdfkg ji
+                </p>
+            );
+        },
+    }, {
         description: "Lana Del Rey",
-        title: "Summertime Sadness",
+        title: "comiasdfsdsfgng sd sd  sdf g d dsg sd  fast",
         // src: "https://assets.aceternity.com/demos/lana-del-rey.jpeg",
         ctaText: "Play",
         ctaLink: "https://ui.aceternity.com/templates",
@@ -427,114 +1104,5 @@ const cards = [
             );
         },
     },
-    {
-        description: "Lana Del Rey",
-        title: "Summertime Sadness",
-        // src: "https://assets.aceternity.com/demos/lana-del-rey.jpeg",
-        ctaText: "Play",
-        ctaLink: "https://ui.aceternity.com/templates",
-        content: () => {
-            return (
-                <p>Lana Del Rey, an iconic American singer-songwriter, is celebrated for
-                    her melancholic and cinematic music style. Born Elizabeth Woolridge
-                    Grant in New York City, she has captivated audiences worldwide with
-                    her haunting voice and introspective lyrics. <br /> <br />Her songs
-                    often explore themes of tragic romance, glamour, and melancholia,
-                    drawing inspiration from both contemporary and vintage pop culture.
-                    With a career that has seen numerous critically acclaimed albums, Lana
-                    Del Rey has established herself as a unique and influential figure in
-                    the music industry, earning a dedicated fan base and numerous
-                    accolades.
-                </p>
-            );
-        },
-    },
-    {
-        description: "Lana Del Rey",
-        title: "Summertime Sadness",
-        // src: "https://assets.aceternity.com/demos/lana-del-rey.jpeg",
-        ctaText: "Play",
-        ctaLink: "https://ui.aceternity.com/templates",
-        content: () => {
-            return (
-                <p>Lana Del Rey, an iconic American singer-songwriter, is celebrated for
-                    her melancholic and cinematic music style. Born Elizabeth Woolridge
-                    Grant in New York City, she has captivated audiences worldwide with
-                    her haunting voice and introspective lyrics. <br /> <br />Her songs
-                    often explore themes of tragic romance, glamour, and melancholia,
-                    drawing inspiration from both contemporary and vintage pop culture.
-                    With a career that has seen numerous critically acclaimed albums, Lana
-                    Del Rey has established herself as a unique and influential figure in
-                    the music industry, earning a dedicated fan base and numerous
-                    accolades.
-                </p>
-            );
-        },
-    },
-    {
-        description: "Lana Del Rey",
-        title: "Summertime Sadness",
-        // src: "https://assets.aceternity.com/demos/lana-del-rey.jpeg",
-        ctaText: "Play",
-        ctaLink: "https://ui.aceternity.com/templates",
-        content: () => {
-            return (
-                <p>Lana Del Rey, an iconic American singer-songwriter, is celebrated for
-                    her melancholic and cinematic music style. Born Elizabeth Woolridge
-                    Grant in New York City, she has captivated audiences worldwide with
-                    her haunting voice and introspective lyrics. <br /> <br />Her songs
-                    often explore themes of tragic romance, glamour, and melancholia,
-                    drawing inspiration from both contemporary and vintage pop culture.
-                    With a career that has seen numerous critically acclaimed albums, Lana
-                    Del Rey has established herself as a unique and influential figure in
-                    the music industry, earning a dedicated fan base and numerous
-                    accolades.
-                </p>
-            );
-        },
-    },
-    {
-        description: "Lana Del Rey",
-        title: "Summertime Sadness",
-        // src: "https://assets.aceternity.com/demos/lana-del-rey.jpeg",
-        ctaText: "Play",
-        ctaLink: "https://ui.aceternity.com/templates",
-        content: () => {
-            return (
-                <p>Lana Del Rey, an iconic American singer-songwriter, is celebrated for
-                    her melancholic and cinematic music style. Born Elizabeth Woolridge
-                    Grant in New York City, she has captivated audiences worldwide with
-                    her haunting voice and introspective lyrics. <br /> <br />Her songs
-                    often explore themes of tragic romance, glamour, and melancholia,
-                    drawing inspiration from both contemporary and vintage pop culture.
-                    With a career that has seen numerous critically acclaimed albums, Lana
-                    Del Rey has established herself as a unique and influential figure in
-                    the music industry, earning a dedicated fan base and numerous
-                    accolades.
-                </p>
-            );
-        },
-    },
-    {
-        description: "Lana Del Rey",
-        title: "Summertime Sadness",
-        // src: "https://assets.aceternity.com/demos/lana-del-rey.jpeg",
-        ctaText: "Play",
-        ctaLink: "https://ui.aceternity.com/templates",
-        content: () => {
-            return (
-                <p>Lana Del Rey, an iconic American singer-songwriter, is celebrated for
-                    her melancholic and cinematic music style. Born Elizabeth Woolridge
-                    Grant in New York City, she has captivated audiences worldwide with
-                    her haunting voice and introspective lyrics. <br /> <br />Her songs
-                    often explore themes of tragic romance, glamour, and melancholia,
-                    drawing inspiration from both contemporary and vintage pop culture.
-                    With a career that has seen numerous critically acclaimed albums, Lana
-                    Del Rey has established herself as a unique and influential figure in
-                    the music industry, earning a dedicated fan base and numerous
-                    accolades.
-                </p>
-            );
-        },
-    },
+
 ];

@@ -7,26 +7,26 @@ import { faX } from "@fortawesome/free-solid-svg-icons";
 import '../LandingPage/Body.css'
 
 const Contact = () => {
-    const form = useRef();
+//     const form = useRef();
 
-    const sendEmail = (e) => {
-        e.preventDefault();
+//     const sendEmail = (e) => {
+//         e.preventDefault();
 
-        emailjs
-            .sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', form.current, {
-                publicKey: 'YOUR_PUBLIC_KEY',
-            })
-            .then(
-                (result) => {
-                    console.log('SUCCESS!', result.text);
-                    e.target.reset()
-                    alert('Email Sent Succesfully !')
-                },
-                (error) => {
-                    console.log('FAILED...', error.text);
-                },
-            );
-    };
+//         emailjs
+//             .sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', form.current, {
+//                 publicKey: 'YOUR_PUBLIC_KEY',
+//             })
+//             .then(
+//                 (result) => {
+//                     console.log('SUCCESS!', result.text);
+//                     e.target.reset()
+//                     alert('Email Sent Succesfully !')
+//                 },
+//                 (error) => {
+//                     console.log('FAILED...', error.text);
+//                 },
+//             );
+//     };
 
     return (
         <div style={styles.contact}>

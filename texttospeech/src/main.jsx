@@ -28,9 +28,9 @@ const router = createBrowserRouter(
         <Route index element={<Dashboard />} />
         <Route path='Voxify' element={<InnerDashboard />} />
       </Route>
-    {/* <Route path='/flashCard' element={<ExpandableCardDemo />}></Route> */}
-    <Route path='/Contact' element={<Contact/>}></Route>
-    <Route path='/flashCard' element={<FlashCardApp/>}></Route>
+    <Route path='/flashCard' element={<ExpandableCardDemo />}></Route>
+    {/* <Route path='/Contact' element={<Contact/>}></Route> */}
+    {/* <Route path='/flashCard' element={<FlashCardApp/>}></Route> */}
     </Route>
 
   )
