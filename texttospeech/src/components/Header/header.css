@@ -1,3 +1,22 @@
+* {
+    box-sizing: border-box;
+    word-wrap: break-word;
+    word-break: break-word;
+}
+
+@media screen and (max-width: 1200px) {
+    .projectBox {
+        width: calc(50% - 30px) !important;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .projectBox {
+        width: 100% !important;
+        margin: 15px 0;
+    }
+}
+
 .line {
     cursor: pointer;
     position: relative;
@@ -128,9 +147,23 @@ border: '1 px solid gray' */
     background-color: #201f1f;
 }
 
+.deletedialogg {
+    border: 1px solid rgb(171, 169, 169);
+    padding: 20px 50px;
+    width: 400px;
+    border-radius: 15px;
+    z-index: 1001;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    transform: translate(-50%, -50%);
+    background-color: #201f1f;
+}
+
 .process {
     border: 1px solid rgb(171, 169, 169);
-    padding:30px 25px;
+    padding: 30px 25px;
     width: 200px;
     border-radius: 15px;
     z-index: 1001;
@@ -143,7 +176,7 @@ border: '1 px solid gray' */
     text-align: center;
 }
 
-.processname{
+.processname {
     font-size: 20px;
 }
 
@@ -155,6 +188,14 @@ border: '1 px solid gray' */
 .dialogbtn {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    margin-top: 25px;
+}
+
+.dialogbtnn {
+    display: flex;
+    justify-content: space-around;
     align-items: center;
     text-align: center;
     margin-top: 25px;

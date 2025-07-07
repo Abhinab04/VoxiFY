@@ -2,12 +2,14 @@ import React from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGithub, faInstagram, faLinkedin, faTwitter } from "@fortawesome/free-brands-svg-icons";
 import { faX } from "@fortawesome/free-solid-svg-icons";
+import Particles from "../LandingPage/Particles";
 import '../LandingPage/Body.css'
 
 function Footer() {
     return (
         <footer style={styles.footer}>
-            <div style={styles.contactContainer}>
+            <div style={{position:'relative',zIndex:999}}>
+                <div style={styles.contactContainer}>
                 <h3 style={styles.heading}>Contact Us</h3>
                 <div >
                     <a className="icon" href="https://www.instagram.com/_abhinv04">
@@ -30,7 +32,8 @@ function Footer() {
                 </p>
             </div>
             <div style={styles.copyRight}>
-                <p>&copy; 2025 Voicefy. All rights reserved.</p>
+                <p>&copy; 2025 Voxify. All rights reserved.</p>
+            </div>
             </div>
         </footer>
     );
@@ -43,6 +46,7 @@ const styles = {
         padding: "40px 20px",
         textAlign: "center",
         fontFamily: "Arial, sans-serif",
+        position: 'relative',
     },
     contactContainer: {
         marginBottom: "30px",
@@ -57,6 +61,7 @@ const styles = {
     },
     quoteContainer: {
         margin: "30px 30px",
+        zIndex: 999
     },
     quote: {
         fontStyle: "italic",
@@ -70,6 +75,7 @@ const styles = {
         marginTop: "20px",
         fontSize: "14px",
         color: "rgb(120, 120, 120)",
+        zIndex: 999
     },
     // icon: {
     //     fontSize: "32px",

@@ -29,6 +29,10 @@ function DashHeader() {
         }
     }
 
+    const feedback = () => {
+        navigate('/contact')
+    }
+
     return (
         <header style={styles.header}>
             <nav style={styles.nav}>
@@ -45,14 +49,13 @@ function DashHeader() {
                                 dropdown &&
                                 (<div style={styles.dropdownMenu}>
                                     <a style={styles.dropdownitems} className="helps">VoxiFY Help</a>
-                                    <a style={styles.dropdownitems} className="helps">Send feedback</a>
-                                    <a style={styles.dropdownitems} className="helps">Profile</a>
+                                    <a style={styles.dropdownitems} className="helps" onClick={feedback}>Send feedback</a>
                                     <a style={styles.dropdownitems} className="helps">Discord</a>
                                     <a onClick={logout} style={styles.dropdownitems} className="helps">Logout</a>
                                 </div>
                                 )}
                         </div>
-                        <a className="line" href="#contact" style={styles.navLink}>Contact</a> {/*iska href ko baad mai chnage karenge*/}
+                        <a className="line" href="#contact" style={styles.navLink} onClick={feedback}>Contact</a> {/*iska href ko baad mai chnage karenge*/}
                     </div>
                 </div>
             </nav>
@@ -74,6 +77,10 @@ const styles = {
         display: 'flex',
         alignItems: 'center',
         gap: '10px',
+        background: 'linear-gradient(45deg, #FF6B6B, #4ECDC4)', // Gradient background
+        WebkitBackgroundClip: 'text', // Background clip for text
+        WebkitTextFillColor: 'transparent',
+        fontWeight: '900',
     },
     ify: {
         color: '#c49a00'

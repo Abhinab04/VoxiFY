@@ -25,21 +25,9 @@ function Login() {
         setconfirm('');
 
         try {
-            const res = await axios.post('http://localhost:3000/user/login', { email, password }, { withCredentials: true });
-            console.log("Data transfer successful: ", res.data.sucess, res.data.message);
+            const res = await axios.post('http://localhost:3001/user/Login', { email, password }, { withCredentials: true });
+            console.log("Data transfer successful: ", res.data.sucess, res.data.error[0].msg);
 
-            if (res.data.sucess === true && res.data.message === 'new Admin Created') {
-                console.log("Navigate to Dashboard");
-                navigate('/admin');
-            }
-            else if (res.data.sucess === true && res.data.message === 'new student Created') {
-                console.log("Navigate to Dashboard");
-                navigate('/student');
-            }
-            else if (res.data.sucess === false) {
-                console.log(res.data.error?.[0]?.msg || "Unknown error");
-                seterror(res.data.error?.[0]?.msg || "Something went wrong");
-            }
         } catch (error) {
             console.log("Request failed:", error);
             seterror("Server error, please try again later.");
@@ -52,7 +40,7 @@ function Login() {
     })
 
     const account = () => {
-        navigate('/user/signup')
+        navigate('/user/Register')
     }
 
 

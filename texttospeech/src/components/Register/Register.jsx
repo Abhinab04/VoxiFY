@@ -14,10 +14,10 @@ function Register() {
     const navigate = useNavigate();
 
     const [name, setname] = useState('')
+    const [username, setUsername] = useState('')
     const [email, setemail] = useState('')
     const [password, setpassword] = useState('')
     const [confirm, setconfirm] = useState('')
-    const [role, setrole] = useState('')
 
     const [errors, setErrors] = useState('');
 
@@ -30,7 +30,7 @@ function Register() {
         setrole('')
 
         try {
-            const response = await axios.post('http://localhost:3001/user/signup', { name, email, password, confirm, role })
+            const response = await axios.post('http://localhost:3001/user/Register', { name, username, email, password, confirm })
             console.log(response.data)
             if (response.data.sucess === true) {
                 navigate('/user/Login')
@@ -40,11 +40,10 @@ function Register() {
                 navigate('/user/Register')
                 setErrors(response.data.error[0].msg)
             }
-            console.log(name, email, password, confirm, role)
+            console.log(name, email, password, confirm, username)
         } catch (error) {
             console.log(error)
         }
-        console.log("hwllo world")
     }
 
     windowlistner('pointermove', (e) => {
@@ -52,7 +51,7 @@ function Register() {
     })
 
     const login = () => {
-        navigate('/user/login')
+        navigate('/user/Login')
     }
 
     function timingout() {
@@ -94,6 +93,10 @@ function Register() {
                         <motion.div style={styles.emailContainer}>
                             <label htmlFor="name" style={styles.label}>Name :</label>
                             <input style={styles.input} type="name" id="name" name="name" value={name} onChange={(event) => { setname(event.target.value) }} required></input>
+                        </motion.div>
+                        <motion.div style={styles.emailContainer}>
+                            <label htmlFor="name" style={styles.label}>Username :</label>
+                            <input style={styles.input} type="username" id="username" name="username" value={name} onChange={(event) => { setUsername(event.target.value) }} required></input>
                         </motion.div>
                         <motion.div style={styles.emailContainer}>
                             <label htmlFor="email" style={styles.label}>Email :</label>
@@ -154,7 +157,7 @@ const styles = {
         width: '70%',
         padding: '30px',
     },
-    
+
     heading: {
         color: 'white',
         fontSize: '42px',

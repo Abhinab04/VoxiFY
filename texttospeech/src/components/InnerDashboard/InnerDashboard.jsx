@@ -18,6 +18,7 @@ function InnerDashboard() {
     const [pdf, setpdf] = useState(false)
     const [dots, setdots] = useState(false)
     const [deletess, setdeletes] = useState(false)
+    const [summ, setsumm] = useState(false)
     const [displayName, setDisplayName] = useState('');
     const [messages, setMessages] = useState([]);
     const [inputText, setInputText] = useState('');
@@ -74,10 +75,20 @@ function InnerDashboard() {
         document.getElementById('alls').style.filter = 'blur(5px)'
     }
 
+    const summarize = () => {
+        setsumm(!summ)
+        document.getElementById('alls').style.filter = 'blur(5px)'
+    }
+
     const cancell = () => {
         setdeletes(!deletess)
         document.getElementById('alls').style.filter = 'none'
     }
+    const cancelll = () => {
+        setsumm(!summ)
+        document.getElementById('alls').style.filter = 'none'
+    }
+
 
     const cancal = () => {
         window.location.reload()
@@ -94,7 +105,6 @@ function InnerDashboard() {
             return;
         }
 
-
         //pdf transfer and audio recieve----------------------
         const formdata = new FormData;
 
@@ -107,10 +117,28 @@ function InnerDashboard() {
         try {
             const res = await axios.post('http://localhost:3001/audio/download', formdata, {
                 headers: {
-                    'Content-Type': 'multipart/form-data'
-                }
+                    'Content-Type': 'multipart/form-data',
+                },
             })
-            console.log(res);
+            console.log(res.data.sucess)
+            if (res.data.sucess === 'true') {
+                try {
+                    const response = await axios.get('http://localhost:3001/audio/down', {
+                        responseType: 'blob'
+                    });
+                    const audioblob = new Blob([response.data], { type: "audio/mp3" })
+                    const url = window.URL.createObjectURL(audioblob);
+                    const link = document.createElement('a')
+                    link.href = url;
+                    link.setAttribute("download", "output.mp3")
+                    document.body.appendChild(link);
+                    link.click();
+                    link.remove();
+                    console.log(response);
+                } catch (error) {
+                    console.log(error)
+                }
+            }
         } catch (error) {
             console.log(error)
         }
@@ -122,14 +150,13 @@ function InnerDashboard() {
     //chat with gpt 4o model------------------------------------------
     const sendMessage = async () => {
         if (!inputText.trim()) return;
-
         const userMessage = { sender: 'user', text: inputText };
         setMessages(prev => [...prev, userMessage]);
         setInputText('');
         setmascot(false);
 
         try {
-            const response = await axios.get('http://localhost:3001/chat')
+            const response = await axios.post('http://localhost:3001/chat/chatting', { inputText })
 
             const botReply = { sender: 'bot', text: response.data.message };
             setMessages(prev => [...prev, botReply]);
@@ -141,15 +168,31 @@ function InnerDashboard() {
         }
     };
 
-
+    //summarize directly on one click
     const summary = async () => {
+        const field = document.getElementById('fieldss')
+        const fields = document.getElementById('fieldsss')
+        console.log(field, fields)
+        const formdata = new FormData;
+
+        formdata.append('pdf', file)
+        console.log(formdata)
+        const value1 = field.value
+        const value2 = fields.value
+        formdata.append('value1', value1)
+        formdata.append('value2', value2)
+
         const userMessage = { sender: 'user', text: "Give summary of the content" };
         setMessages(prev => [...prev, userMessage]);
         setInputText('');
         setmascot(false);
 
         try {
-            const response = await axios.get('http://localhost:3001/chat/summary')
+            const response = await axios.post('http://localhost:3001/chat/summary', formdata, {
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                }
+            })
 
             const botReply = { sender: 'bot', text: response.data.message };
             setMessages(prev => [...prev, botReply]);
@@ -262,7 +305,7 @@ function InnerDashboard() {
                                 onKeyDown={e => {
                                     if (e.key === 'Enter' && !e.shiftKey) {
                                         e.preventDefault();
-                                        sendMessage();
+                                        sendMessage()
                                         setmascot(false);
                                     }
                                 }}
@@ -274,7 +317,7 @@ function InnerDashboard() {
                                 <FontAwesomeIcon style={styles.arrowup} icon={faArrowUp} />
                             </motion.button>
                             <motion.button
-                                onClick={summary}
+                                onClick={summarize}
                             >
                                 <FontAwesomeIcon className="summary" style={styles.summary} icon={faList} />
                             </motion.button>
@@ -365,7 +408,33 @@ function InnerDashboard() {
                             <button className="cancel" onClick={cancal}>Delete</button>
                         </div>
                     </div>
-                )}
+                )
+            }
+
+            {
+                summ &&
+                (
+                    <div className="deletedialogg">
+                        <p className="delte_name">Select the pages</p>
+                        <div style={styles.start}>
+                            <div style={styles.st}>
+                                <p>Start Page</p>
+                                <input id='fieldss' style={styles.field}></input>
+                            </div>
+
+                            <div style={styles.d}>
+                                <p>End Page</p>
+                                <input id='fieldsss' style={styles.field}></input>
+                            </div>
+                        </div>
+                        <div className="dialogbtnn">
+                            <button className="cancel" onClick={cancelll}>Cancel</button>
+                            <button className="cancel" onClick={summary}>Submit</button>
+                        </div>
+                    </div>
+                )
+            }
+
 
             {/* <div className="process">
                 <p className="processname">. . . Processing</p>

@@ -6,6 +6,10 @@ import { useGSAP } from '@gsap/react'
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { windowlistner } from "./WindowListener";
 import { Link, useNavigate } from "react-router-dom";
+import upload from '../../picture/upload.jpg'
+import generate from '../../picture/generate.jpg'
+import privacy from '../../picture/privacy.png'
+import Particles from './Particles.jsx';
 import Axios from 'axios'
 import './Body.css'
 
@@ -147,131 +151,152 @@ function Body() {
                 ...styles.cursor,
                 transform: `translate(${position.x}px, ${position.y}px)`
             }}></div>
-            <div style={styles.bodyContainer}>
-                <div style={styles.title} className="Title">
-                    {/* <p className=" bg-white">{backend}</p> */}
-                    <p className="text">Text That Speaks,</p>
-                    <h1 style={styles.color} className="efforts">Effortlessly!</h1>
-                </div>
-                <div style={styles.p} className="quote">
-                    <p>The ultimate tool to bring your words to life,</p>
-                    <p>powered by innovation.</p>
-                </div>
-                <button style={styles.button} className="button" onClick={travel} >Try VoxiFY</button>
+            <div style={{
+                width: '100%',
+                height: '100%',
+                position: 'fixed',
+                top: 0,
+                left: 0,
+                zIndex: 1
+            }}>
+                <Particles
+                    particleColors={['#ffffff', '#ffffff']}
+                    particleCount={350}
+                    particleSpread={10}
+                    speed={0.1}
+                    particleBaseSize={100}
+                    moveParticlesOnHover={true}
+                    alphaParticles={false}
+                    disableRotation={false}
+                />
             </div>
-            <section style={styles.section}>
-                <div >
-                    <p style={styles.heading}>Your Ultimate Personalized AI Companion</p>
-                    <div style={styles.upload}  >
-                        <div style={styles.summary} className="summary">
-                            <FontAwesomeIcon icon={faUser} style={styles.icon} />
-                            <p style={styles.summaryTitle}>Upload Your Sources</p>
-                            <div className='my-5'>
-                                <p style={styles.summaryText}>
-                                    Upload your sources, including PDFs, websites,
-                                </p>
-                                <p style={styles.summaryText}>
-                                    Google Docs, or Google Slides. Our AI-powered
-                                </p>
-                                <p style={styles.summaryText}>
-                                    system will intelligently summarize the content,
-                                </p>
-                                <p style={styles.summaryText}>
-                                    helping you understand and explore your materials
-                                </p>
-                                <p style={styles.summaryText}>
-                                    with ease.
-                                </p>
+            <div style={{ position: 'relative', zIndex: 999 }}>
+                <div style={styles.bodyContainer}>
+                    <div style={styles.title} className="Title">
+                        {/* <p className=" bg-white">{backend}</p> */}
+                        <p className="text">Text That Speaks,</p>
+                        <h1 style={styles.color} className="efforts">Effortlessly!</h1>
+                    </div>
+                    <div style={styles.p} className="quote">
+                        <p>The ultimate tool to bring your words to life,</p>
+                        <p>powered by innovation.</p>
+                    </div>
+                    <button style={styles.button} className="button" onClick={travel} >Try VoxiFY</button>
+                </div>
+                <section style={styles.section}>
+                    <div >
+                        <p style={styles.heading}>Your Ultimate Personalized AI Companion</p>
+                        <div style={styles.upload}  >
+                            <div style={styles.summary} className="summary">
+                                <FontAwesomeIcon icon={faUser} style={styles.icon} />
+                                <p style={styles.summaryTitle}>Upload Your Sources</p>
+                                <div className='my-5'>
+                                    <p style={styles.summaryText}>
+                                        Upload your sources, including PDFs, websites,
+                                    </p>
+                                    <p style={styles.summaryText}>
+                                        Google Docs, or Google Slides. Our AI-powered
+                                    </p>
+                                    <p style={styles.summaryText}>
+                                        system will intelligently summarize the content,
+                                    </p>
+                                    <p style={styles.summaryText}>
+                                        helping you understand and explore your materials
+                                    </p>
+                                    <p style={styles.summaryText}>
+                                        with ease.
+                                    </p>
+                                </div>
+                            </div>
+                            <div className="summary" style={styles.imageContainer}>
+                                <img src={generate} alt="your sources" style={styles.image} />
                             </div>
                         </div>
-                        <div style={styles.imageContainer}>
-                            <img src="" alt="your sources" style={styles.image} />
-                        </div>
                     </div>
-                </div>
 
-                <div >
-                    <div style={styles.upload}>
-                        <div style={styles.summary} className="summarys" >
-                            <FontAwesomeIcon icon={faBolt} style={styles.icon} />
-                            <p style={styles.summaryTitle}>Effortless Understanding</p>
-                            <div className='my-5'>
-                                <p style={styles.summaryText}>
-                                    With your content uploaded, Voicefy provides
-                                </p>
-                                <p style={styles.summaryText}>
-                                    personalized answers and generates ideas tailored
-                                </p>
-                                <p style={styles.summaryText}>
-                                    to the information that matters most to you.
-                                </p>
+                    <div >
+                        <div style={styles.upload}>
+                            <div style={styles.summary} className="summarys" >
+                                <FontAwesomeIcon icon={faBolt} style={styles.icon} />
+                                <p style={styles.summaryTitle}>Effortless Understanding</p>
+                                <div className='my-5'>
+                                    <p style={styles.summaryText}>
+                                        With your content uploaded, Voxify provides
+                                    </p>
+                                    <p style={styles.summaryText}>
+                                        personalized answers and generates ideas tailored
+                                    </p>
+                                    <p style={styles.summaryText}>
+                                        to the information that matters most to you.
+                                    </p>
+                                </div>
+                            </div>
+                            <div className="summarys" style={styles.imageContainer}>
+                                <img src={upload} alt="your sources" style={styles.image} />
                             </div>
                         </div>
-                        <div style={styles.imageContainer}>
-                            <img src="" alt="your sources" style={styles.image} />
-                        </div>
                     </div>
-                </div>
-                <div >
-                    <div style={styles.upload}>
-                        <div style={styles.summary} className="summaryss" >
-                            <FontAwesomeIcon icon={faHeadphones} style={styles.icon} />
-                            <p style={styles.summaryTitle}>Learn and explore anywhere</p>
-                            <div className='my-5'>
-                                <p style={styles.summaryText}>
-                                    With the new Audio Overview feature, transform
-                                </p>
-                                <p style={styles.summaryText}>
-                                    your sources into immersive “Deep Dive” conversations
-                                </p>
-                                <p style={styles.summaryText}>
-                                    instantly, keeping you informed on the go.
-                                </p>
+                    <div >
+                        <div style={styles.upload}>
+                            <div style={styles.summary} className="summaryss" >
+                                <FontAwesomeIcon icon={faHeadphones} style={styles.icon} />
+                                <p style={styles.summaryTitle}>Learn and explore anywhere</p>
+                                <div className='my-5'>
+                                    <p style={styles.summaryText}>
+                                        With the new Audio Overview feature, transform
+                                    </p>
+                                    <p style={styles.summaryText}>
+                                        your sources into immersive “Deep Dive” conversations
+                                    </p>
+                                    <p style={styles.summaryText}>
+                                        instantly, keeping you informed on the go.
+                                    </p>
+                                </div>
+                            </div>
+                            <div className="summaryss" style={styles.imageContainer}>
+                                <img src={upload} alt="your sources" style={styles.image} />
                             </div>
                         </div>
-                        <div style={styles.imageContainer}>
-                            <img src="" alt="your sources" style={styles.image} />
+                    </div>
+
+                </section>
+                <section style={styles.privacy} className="privacy">
+                    <div>
+                        <div style={styles.privs}>
+                            <p style={styles.priv}>Your privacy is our priority</p>
+                            <p style={styles.privdetail}>At Voxify, we are committed to protecting your personal data. We do not use your uploaded content, queries, or model responses for training purposes, ensuring your information remains secure and private.</p>
+                        </div>
+                        <div style={styles.privimage}>
+                            <img src={privacy} alt="your sources" style={styles.images} />
                         </div>
                     </div>
-                </div>
+                </section>
 
-            </section>
-            <section style={styles.privacy} className="privacy">
-                <div>
-                    <div style={styles.privs}>
-                        <p style={styles.priv}>Your privacy is our priority</p>
-                        <p style={styles.privdetail}>At Voicefy, we are committed to protecting your personal data. We do not use your uploaded content, queries, or model responses for training purposes, ensuring your information remains secure and private.</p>
+                <section >
+                    <p style={styles.ideas}>See how users are unlocking smarter insights with Voxify.</p>
+                    <div style={styles.boxes}>
+                        <div style={styles.input} className="power">
+                            <FontAwesomeIcon icon={faGraduationCap} style={styles.iconss} />
+                            <p style={styles.bo}>Power Learning</p>
+                            <p style={styles.inputtext}>Upload lectures, textbooks, and research papers. Ask Voicefy to simplify complex topics, provide practical examples, and boost your comprehension. </p>
+                            <p style={styles.quote}>Learn smarter, faster.</p>
+                        </div>
+                        <div style={styles.input} className="streamline">
+                            <FontAwesomeIcon icon={faTableColumns} style={styles.iconss} />
+                            <p style={styles.bo}>Streamline Your Ideas</p>
+                            <p style={styles.inputtext}>Upload your materials, and let Voicefy craft a refined presentation outline with key points and supporting details. </p>
+                            <p style={styles.quote}>Deliver with clarity.</p>
+                        </div>
+                        <div style={styles.input} className="innovation">
+                            <FontAwesomeIcon icon={faLightbulb} style={styles.iconss} />
+                            <p style={styles.bo}>Ignite Innovation</p>
+                            <p style={styles.inputtext}>Upload brainstorming notes, market insights, and competitor analysis. Let Voicefy uncover trends, spark fresh ideas, and reveal untapped opportunities.
+                            </p>
+                            <p style={styles.quote}> Unleash your creative potential.</p>
+                        </div>
                     </div>
-                    <div style={styles.privimage}>
-                        <img src="" alt="your sources" style={styles.image} />
-                    </div>
-                </div>
-            </section>
-
-            <section >
-                <p style={styles.ideas}>See how users are unlocking smarter insights with Voicefy.</p>
-                <div style={styles.boxes}>
-                    <div style={styles.input} className="power">
-                        <FontAwesomeIcon icon={faGraduationCap} style={styles.iconss} />
-                        <p style={styles.bo}>Power Learning</p>
-                        <p style={styles.inputtext}>Upload lectures, textbooks, and research papers. Ask Voicefy to simplify complex topics, provide practical examples, and boost your comprehension. </p>
-                        <p style={styles.quote}>Learn smarter, faster.</p>
-                    </div>
-                    <div style={styles.input} className="streamline">
-                        <FontAwesomeIcon icon={faTableColumns} style={styles.iconss} />
-                        <p style={styles.bo}>Streamline Your Ideas</p>
-                        <p style={styles.inputtext}>Upload your materials, and let Voicefy craft a refined presentation outline with key points and supporting details. </p>
-                        <p style={styles.quote}>Deliver with clarity.</p>
-                    </div>
-                    <div style={styles.input} className="innovation">
-                        <FontAwesomeIcon icon={faLightbulb} style={styles.iconss} />
-                        <p style={styles.bo}>Ignite Innovation</p>
-                        <p style={styles.inputtext}>Upload brainstorming notes, market insights, and competitor analysis. Let Voicefy uncover trends, spark fresh ideas, and reveal untapped opportunities.
-                        </p>
-                        <p style={styles.quote}> Unleash your creative potential.</p>
-                    </div>
-                </div>
-            </section>
+                </section>
+            </div>
         </div>
     )
 }
@@ -305,7 +330,7 @@ const styles = {
     heading: {
         fontSize: "38px",
         marginTop: "125px",
-       color: 'rgb(221, 219, 219)',
+        color: 'rgb(221, 219, 219)',
         cursor: 'pointer'
     },
     upload: {
@@ -334,7 +359,7 @@ const styles = {
     icon: {
         fontSize: "35px",
         marginLeft: '150px',
-       color: 'rgb(221, 219, 219)',
+        color: 'rgb(221, 219, 219)',
     },
     summaryText: {
         fontSize: "18px",
@@ -348,13 +373,21 @@ const styles = {
     imageContainer: {
         flex: "1",
         minWidth: "300px",
+        marginBottom: '20px'
     },
     image: {
-        marginTop: '100px',
-        width: "100%",
+        marginTop: '60px',
+        width: "80%",
         maxWidth: "650px",
         height: "auto",
-        borderRadius: "8px",
+        borderRadius: "10px",
+    },
+    images: {
+        marginTop: '60px',
+        width: "100%",
+        maxWidth: "650px",
+        height: "50%",
+        borderRadius: "10px",
     },
     privacy: {
         marginTop: '20px',
@@ -362,10 +395,10 @@ const styles = {
     priv: {
         background: 'linear-gradient(45deg, #FF6B6B, #4ECDC4)', // Gradient background
         WebkitBackgroundClip: 'text', // Background clip for text
-        WebkitTextFillColor: 'transparent', 
-        display:'inline-block',
+        WebkitTextFillColor: 'transparent',
+        display: 'inline-block',
         fontSize: '40px',
-        fontWeight:'bold'
+        fontWeight: 'bold'
     },
     privdetail: {
         color: 'rgb(169, 167, 167)',
@@ -386,7 +419,7 @@ const styles = {
         marginBottom: '0',
     },
     ideas: {
-        color: 'rgb(221, 219, 219)', 
+        color: 'rgb(221, 219, 219)',
         fontSize: '35px',
         marginTop: '150px'
     },
@@ -398,10 +431,10 @@ const styles = {
         marginTop: '80px',
     },
     bo: {
-       background: 'linear-gradient(45deg, #FF6B6B, #4ECDC4)', // Gradient background
+        background: 'linear-gradient(45deg, #FF6B6B, #4ECDC4)', // Gradient background
         WebkitBackgroundClip: 'text', // Background clip for text
         WebkitTextFillColor: 'transparent',
-        display:'block',
+        display: 'block',
         fontSize: '28px'
     },
     inputtext: {

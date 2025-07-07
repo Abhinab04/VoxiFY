@@ -10,8 +10,8 @@ function Layout() {
 
     const location = useLocation();
 
-    const noheaderandfooter = ['/user/Login', '/user/Register']
-    const NoheaderDash = ['/Dashboard', '/Dashboard/Voxify']
+    const noheaderandfooter = ['/user/Register', '/user/Login', '/Dashboard/pdf','/contact']
+    const NoheaderDash = ['/Dashboard', '/Dashboard/Voxify', '/Dashboard/Quiz','/Dashboard/FlashCard']
     const noheader = noheaderandfooter.includes(location.pathname)
     const noheadDash = NoheaderDash.includes(location.pathname)
 

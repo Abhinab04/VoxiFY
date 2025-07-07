@@ -9,30 +9,26 @@ import Login from './components/Login/Login.jsx'
 import Register from './components/Register/Register.jsx'
 import Dashboard from './components/Dashboard/Body/Dashboard.jsx'
 import InnerDashboard from './components/InnerDashboard/InnerDashboard.jsx'
-import axios from "axios";
-
-
-try {
-  const res = await axios.get('http://localhost:3001/ensure')
-  console.log(res.data.success)
-} catch (error) {
-  console.log(error);
-}
-
-
-
+import QuizPage from './components/Quiz/Quiz.jsx'
+import Pdf from './components/Pdf/Pdf.jsx'
+import Contact from './components/ContactUs/Contact.jsx'
+import {ExpandableCardDemo} from './components/FlashCard/FlashCard.jsx'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path='/' element={<Layout />}>
       <Route index element={<Body />} />
+      <Route path='contact' element={<Contact />} />
       <Route path='user/'>
         <Route path='Login' element={<Login />} />
         <Route path='Register' element={<Register />} />
       </Route>
-      <Route off path='Dashboard'>
+      <Route path='Dashboard'>
         <Route index element={<Dashboard />} />
         <Route path='Voxify' element={<InnerDashboard />} />
+        <Route path='Quiz' element={<QuizPage />} />
+        <Route path='pdf' element={<Pdf />} />
+        <Route path='FlashCard' element={<ExpandableCardDemo />} />
       </Route>
     </Route>
 

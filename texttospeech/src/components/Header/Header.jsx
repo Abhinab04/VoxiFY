@@ -4,7 +4,8 @@ import './header.css'
 function Header() {
     return (
         <header style={styles.header}>
-            <nav style={styles.nav}>
+           <div style={{position:'relative',zIndex:999}}>
+             <nav style={styles.nav}>
                 <div style={styles.saperate}>
                     <div style={styles.name}>
                         <h1>VoxiFY</h1>
@@ -16,6 +17,7 @@ function Header() {
                     </div>
                 </div>
             </nav>
+           </div>
         </header>
     );
 };
@@ -34,16 +36,17 @@ const styles = {
         background: 'linear-gradient(45deg, #FF6B6B, #4ECDC4)', // Gradient background
         WebkitBackgroundClip: 'text', // Background clip for text
         WebkitTextFillColor: 'transparent',
-        fontWeight:'900',
+        fontWeight: '900',
     },
     header: {
         textAlign: 'center',
         backgroundColor: 'rgb(19, 19, 19)',
         color: 'white',
         padding: '10px',
-        position: 'sticky',
+        position: 'relative',
         top: 0,
         zIndex: 999,
+        zIndex: 2
     },
     nav: {
         marginTop: '15px',
