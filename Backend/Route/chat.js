@@ -259,9 +259,23 @@ router.post("/submitPDF", upload.single('pdf'), async (req, res) => {
         const pdfFile = req.file;
         const { startPage, endPage } = req.body;
 
-        const dataBuffer = fs.readFileSync(pdfFile.path);
+        const fileBuffer = fs.readFileSync(pdfFile.path);
+        const originalPdfDoc = await PDFDocument.load(fileBuffer);
 
-        const data = await pdf(dataBuffer);
+        const extractedPdf = await PDFDocument.create();
+        const totalPages = originalPdfDoc.getPageCount();
+
+        const start = Math.max(parseInt(startPage), 1);
+        const end = Math.min(parseInt(endPage), totalPages);
+
+        for (let i = start - 1; i < end; i++) {
+            const [copiedPage] = await extractedPdf.copyPages(originalPdfDoc, [i]);
+            extractedPdf.addPage(copiedPage);
+        }
+
+        const extractedPdfBuffer = await extractedPdf.save();
+
+        const data = await pdf(extractedPdfBuffer);
         const pdfText = data.text;
 
         const questions = await main(pdfText);
@@ -276,6 +290,14 @@ router.post("/submitPDF", upload.single('pdf'), async (req, res) => {
         doc.fontSize(12).text(formatted);
         doc.end();
 
+        try {
+            if (questions !== '') {
+                await Questions.deleteMany({});
+                await Questions.insertMany(questions);
+            }
+        } catch (error) {
+            console.log('error in database storage of questions ' + error);
+        }
         await Questions.insertMany(questions);
 
         res.json(questions);
