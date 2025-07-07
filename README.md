@@ -16,6 +16,7 @@ Welcome to the **Voxify**, a modern and innovative platform that transforms text
 - 🔒 **Privacy First**: Your data is secure and not used for training purposes.
 - 🔑 **Authentication**: Login and register functionality for personalized user experiences.
 
+** New Features will be added soon **
 ---
 
 ## **Technologies Used**
@@ -137,3 +138,4 @@ Follow these steps to set up the project locally:
   │   ├── middleware/
   │   │   ├── authMiddleware.js
   ├── package.json
+
