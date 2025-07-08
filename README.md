@@ -1,4 +1,4 @@
-# **Project not Completed🎉🎉**
+# **Project not Completed**
 ---
 # **Voxify**
 
