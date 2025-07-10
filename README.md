@@ -41,12 +41,12 @@ Follow these steps to set up the project locally:
    
 2. **Start the Development Server**
      ```bash
-     cd texttospeech
+     cd Frontend
      npm install
      npm run dev
 3. **Backend Setup**
     ```bash
-    cd backend
+    cd Backend
     npm install
     node app.js
     
