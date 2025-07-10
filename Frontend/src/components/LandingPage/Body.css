@@ -1,0 +1,90 @@
+.button {
+    margin-top: 30px;
+    padding: 10px 47px;
+    font-size: 25px;
+    cursor: pointer;
+    border-radius: 35px;
+    background: black;
+    /* Set initial background color to black */
+    font-weight: 300;
+    z-index: 1;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid rgba(78, 205, 196, 0.3);
+    box-shadow: 0 0 15px rgba(78, 205, 196, 0.3);
+    color: white;
+    /* Ensure text color is explicitly set */
+    text-align: center;
+    /*  transition: all 0.3s ease; /* Smooth transition for hover effects */
+}
+
+/* Gradient overlay */
+.button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 200%;
+    height: 100%;
+    background: linear-gradient(45deg, #FF6B6B, #4ECDC4, #FF6B6B);
+    background-size: 200% 200%;
+    z-index: 0;
+    transition: left 0.5s ease, opacity 0.3s ease;
+    opacity: 0;
+    /* Initially transparent */
+    mix-blend-mode: screen;
+    /* Blend gradient with background */
+}
+
+/* On hover: animate gradient */
+.button:hover::before {
+    left: 0;
+    opacity: 1;
+    /* Make gradient visible on hover */
+    animation: gradient 3s ease infinite;
+}
+
+/* Text stays on top */
+.button>* {
+    position: relative;
+    z-index: 1;
+}
+
+/* Hover effects */
+.button:hover {
+    background: black;
+    /* Keep the background black */
+    color: white;
+    /* Enforce text color */
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(78, 205, 196, 0.2);
+    border-color: transparent;
+}
+
+/* Keyframe animation */
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.icon {
+    font-size: 32px;
+    color: rgb(204, 200, 200);
+    margin: 10px;
+    transition: transform 0.3s ease, color 0.3s ease;
+    display: inline-block;
+}
+
+.icon:hover {
+    transform: scale(1.2);
+    color: rgb(168, 171, 171);
+}
