@@ -163,7 +163,7 @@ export function ExpandableCardDemo() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const res = await axios.get('http://localhost:3001/chat/fetchFlashCardData');
+                const res = await axios.get('https://voxify-k2iw.onrender.com/chat/fetchFlashCardData');
                 console.log(res.data.msg);
                 setcard(res.data.msg)
             } catch (error) {
