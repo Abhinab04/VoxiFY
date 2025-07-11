@@ -12,6 +12,24 @@ process.env.PATH += path.delimiter + path.dirname(ffmpegPath);
 
 const port = 3000;
 
+function ensureFoldersExist() {
+    const folders = [
+        path.join(__dirname, '../tmp'),
+        path.join(__dirname, '../extract'),
+        path.join(__dirname, '../Text'),
+        path.join(__dirname, '../audio'),
+        path.join(__dirname, '../Output')
+    ];
+
+    folders.forEach(folder => {
+        if (!fs.existsSync(folder)) {
+            fs.mkdirSync(folder, { recursive: true });
+            console.log(`Created folder: ${folder}`);
+        }
+    });
+}
+
+
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
         const tmpPath = path.join(__dirname, '../tmp');
@@ -30,6 +48,7 @@ const upload = multer({ storage: storage });
 
 router.post('/download', upload.single('pdf'), async (req, res) => {
     //getting the value,pdf from frontend    
+    ensureFoldersExist();
     const { value1, value2 } = req.body;
     const pdfFile = req.file;
 

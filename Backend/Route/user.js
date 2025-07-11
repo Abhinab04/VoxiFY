@@ -101,7 +101,6 @@ router.post('/Login', async (req, res) => {
         }
 
         const token = jwt.sign({ email: exist.email, id: exist._id }, process.env.JWT_SECRET, { expiresIn: '1d' });
-
         res.cookie('token', token, {
             httpOnly: true,
             secure: false,
@@ -115,6 +114,7 @@ router.post('/Login', async (req, res) => {
             name: exist.username,
             email: exist.email
         });
+        console.log('login done')
     } catch (error) {
         console.log('Internal Server Error' + error);
     }

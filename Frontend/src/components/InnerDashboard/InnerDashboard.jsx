@@ -105,8 +105,8 @@ function InnerDashboard() {
         <div className="loading-overlay">
             <div className="loading-spinner">
                 <FontAwesomeIcon icon={faSpinner} spin />
-                <p>Processing...</p>
             </div>
+            <p>Processing ....</p>
         </div>
     );
 

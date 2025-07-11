@@ -214,7 +214,7 @@ const Pdf = () => {
                         disabled={loading}
                         onClick={submitbtn}
                     >
-                        {loading ? 'Processing...' : 'Go To Quiz Page'}
+                        {loading ? 'Processing...' : 'Go To Quiz/FlashCard Page'}
                     </button>
                 </div>
             </div>
