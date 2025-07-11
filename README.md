@@ -1,141 +1,139 @@
-# **Project not Completed**
----
-# **Voxify**
-
-Welcome to the **Voxify**, a modern and innovative platform that transforms text into speech effortlessly. This application is powered by cutting-edge technologies and designed to provide users with an intuitive and seamless experience.
-
+**Project Over**
 ---
 
-## **Features**
+# VoxiFY
 
-- 🎤 **Text-to-Speech Conversion**: Convert text into high-quality audio.
-- 📂 **Upload Sources**: Upload PDFs, Google Docs, or websites for summarization.
-- 🧠 **AI-Powered Summarization**: Summarize content intelligently.
-- 🎧 **Audio Overview**: Listen to summaries instead of reading.
-- 💬 **Chat Interface**: Interact with an AI-powered chatbot for personalized assistance.
-- 🔒 **Privacy First**: Your data is secure and not used for training purposes.
-- 🔑 **Authentication**: Login and register functionality for personalized user experiences.
-
-** New Features will be added soon **
----
-
-## **Technologies Used**
-
-- **Frontend**: React, GSAP (GreenSock Animation Platform), Framer Motion
-- **Backend**: Node.js, Express.js
-- **Styling**: CSS, FontAwesome Icons
-- **APIs**: Axios for HTTP requests
-- **Routing**: React Router
-- **Authentication**: JWT (JSON Web Tokens)
-- **Deployment**: [Add deployment platform, e.g., Vercel, Netlify, etc.]
+VoxiFY is a full-stack web application that lets users upload PDFs, generate flashcards and quizzes from their content, and use text-to-speech features. Built with React (frontend) and Node.js/Express (backend), VoxiFY helps you learn and review efficiently.
 
 ---
 
-## **Installation**
+## Features
 
-Follow these steps to set up the project locally:
+- **PDF Upload:** Upload PDF files for processing.
+- **Flashcard Generation:** Automatically generate question-answer flashcards from your documents.
+- **Quiz Generation:** Create quizzes from your uploaded content.
+- **Text-to-Speech:** Convert text or document content into audio.
+- **User Authentication:** Register and log in to save your progress.
+- **Modern UI:** Responsive and interactive interface using React and Framer Motion.
 
-1. **Clone the Repository**:
-   ```bash
-   git clone https://github.com/Abhinab04/VoiceFY.git
-   
-2. **Start the Development Server**
-     ```bash
-     cd Frontend
-     npm install
-     npm run dev
-3. **Backend Setup**
-    ```bash
+---
+
+## Folder Structure
+
+```
+Backend/
+  app.js
+  package.json
+  Route/
+    chat.js
+    audio.js
+    user.js
+  models/
+    Users.js
+  ...
+Frontend/
+  src/
+    components/
+      FlashCard/
+      Pdf/
+      Dashboard/
+      ...
+    App.jsx
+    main.jsx
+  package.json
+  ...
+```
+
+---
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js (v18+ recommended)
+- MongoDB (local or cloud)
+- (Optional) Python for some audio features
+
+### Backend Setup
+
+1. Go to the `Backend` folder:
+    ```sh
     cd Backend
+    ```
+2. Install dependencies:
+    ```sh
     npm install
+    ```
+3. Create a `.env` file with your environment variables (MongoDB URI, OpenAI API key, etc.).
+4. Start the backend server:
+    ```sh
     node app.js
-    
+    ```
+   The backend will run on `http://localhost:3001` by default.
+
+### Frontend Setup
+
+1. Go to the `texttospeech` folder:
+    ```sh
+    cd Frontend
+    ```
+2. Install dependencies:
+    ```sh
+    npm install
+    ```
+3. Start the frontend development server:
+    ```sh
+    npm run dev
+    ```
+   The frontend will run on `http://localhost:5173` by default.
+
 ---
-## **Authentication**
-1. **Register New Account**
-   - Navigate to the Register page
-   - Fill in required details:
-     - Username
-     - Email
-     - Password
-   - Click "Register" to create account
 
-2. **Login**
-   - Visit the Login page
-   - Enter credentials:
-     - Email
-     - Password
-   - Click "Login" to access your account
-## **Source Management**
- ### Upload Sources
-- Supported formats:
-  - PDF documents
-  - Google Docs
-  - Website URLs
+## Usage
 
-### Automatic Processing
-- AI-powered summarization
-- Content analysis
-- Key points extraction
-  
-## **Text-to-Speech Features**
-1. **Convert Text**
-   - Select text portion
-   - Choose voice settings
-   - Click "Convert to Speech"
+- **Register/Login:** Create an account or log in.
+- **Dashboard:** Access your dashboard to upload PDFs and generate flashcards/quizzes.
+- **Flashcards:** View, flip, and study generated flashcards.
+- **Quiz:** Take quizzes generated from your content.
+- **Text-to-Speech:** Listen to your notes or document content.
 
-2. **Audio Management**
-   - Preview generated audio
-   - Download for offline use
-   - Adjust playback settings
-
-## **Customised Options**
-### Layout Settings
-- Column View
-  - Traditional vertical layout
-  - Optimal for reading
-
-- Row View
-  - Horizontal arrangement
-  - Better for comparisons
-
-### Personal Preferences
-- Font size adjustment
-- Color theme selection
-- Audio playback speed
-- Voice selection
-  
 ---
-## **Folder Structure**
-  ```bash
-  text-to-speech/
-  ├── src/
-  │   ├── components/
-  │   │   ├── LandingPage/
-  │   │   │   ├── Body.jsx
-  │   │   │   ├── Body.css
-  │   │   ├── Dashboard/
-  │   │   │   ├── Dashboard.jsx
-  │   │   │   ├── Dashboard.css
-  │   │   ├── InnerDashboard/
-  │   │   │   ├── InnerDashboard.jsx
-  │   │   │   ├── InnerDashboard.css
-  │   │   ├── Auth/
-  │   │   │   ├── Login.jsx
-  │   │   │   ├── Login.css
-  │   │   │   ├── Register.jsx
-  │   │   │   ├── Register.css
-  │   ├── App.js
-  │   ├── index.js
-  ├── public/
-  ├── backend/
-  │   ├── server.js
-  │   ├── routes/
-  │   │   ├── authRoutes.js
-  │   │   ├── textRoutes.js
-  │   ├── models/
-  │   │   ├── User.js
-  │   ├── middleware/
-  │   │   ├── authMiddleware.js
-  ├── package.json
 
+## API Endpoints (Backend)
+
+- `POST /chat/submitPDF` — Upload PDF and generate flashcards.
+- `GET /chat/fetchFlashCardData` — Fetch all flashcards (question/answer pairs).
+- `POST /chat/quizDownload` — Upload PDF and generate quiz.
+- `GET /chat/downPdf` — Download generated quiz as a file.
+- ...and more (see `Backend/Route/chat.js`).
+
+---
+
+## Technologies Used
+
+- **Frontend:** React, Framer Motion, Axios, Styled Components, Vite
+- **Backend:** Node.js, Express, MongoDB, Mongoose, OpenAI API, pdf-lib, multer
+- **Other:** Python (gTTS for audio), PDF parsing libraries
+
+---
+
+## Customization
+
+- Update OpenAI API keys and endpoints in your `.env` file.
+- Adjust MongoDB connection string as needed.
+- Modify UI components in `src/components` for your branding.
+
+---
+
+## License
+
+This project is for educational purposes. See [LICENSE](LICENSE) for more details.
+
+---
+
+## Credits
+
+- [OpenAI](https://openai.com/)
+- [React](https://react.dev/)
+- [pdf-lib](https://pdf-lib.js.org/)
+- [gTTS](https://pypi.org/project/gTTS/)
