@@ -1,4 +1,4 @@
-import './contact.css';
+import './Contact.css';
 import { windowlistner } from "../WindowListener/WindowListener"
 import { useState } from 'react';
 import axios from 'axios';
