@@ -30,7 +30,7 @@ function Register() {
         setUsername('')
 
         try {
-            const response = await axios.post('https://voxify-k2iw.onrender.com/user/Register', { name, username, email, password, confirm })
+            const response = await axios.post('https://voxify-1l5b.onrender.com/user/Register', { name, username, email, password, confirm })
             console.log(response.data)
             if (response.data.success === 'true') {
                 navigate('/user/Login')

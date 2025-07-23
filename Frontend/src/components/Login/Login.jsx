@@ -24,7 +24,7 @@ function Login() {
         setconfirm('');
 
         try {
-            const res = await axios.post('https://voxify-k2iw.onrender.com/user/Login', { email, password });
+            const res = await axios.post('https://voxify-1l5b.onrender.com/user/Login', { email, password });
             console.log(res.data.success)
 
             if (res.data.success === true) {
