@@ -1,0 +1,35 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@azure-rest/ai-inference": "^1.0.0-beta.6",
+    "@azure/core-auth": "^1.9.0",
+    "@azure/core-sse": "^2.2.0",
+    "audioconcat": "^0.1.4",
+    "axios": "^1.9.0",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.5.0",
+    "express": "^4.21.2",
+    "express-session": "^1.18.1",
+    "ffmpeg-static": "^5.2.0",
+    "gtts": "^0.2.1",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.9.7",
+    "multer": "^1.4.5-lts.2",
+    "nodemailer": "^7.0.4",
+    "nodemon": "^3.1.9",
+    "openai": "^4.97.0",
+    "passport": "^0.7.0",
+    "passport-local": "^1.0.0",
+    "pdf-lib": "^1.17.1",
+    "pdf-parse": "^1.1.1"
+  }
+}
