@@ -55,7 +55,7 @@ const Pdf = () => {
         try {
             if (locations === 'Quiz') {
                 setLoadingMessage('Generating Quiz...');
-                const res = await axios.post('https://voxify-k2iw.onrender.com/chat/quizDownload', formdata, {
+                const res = await axios.post('https://voxify-1l5b.onrender.com/chat/quizDownload', formdata, {
                     headers: {
                         'Content-Type': 'multipart/form-data',
                     }
@@ -63,7 +63,7 @@ const Pdf = () => {
 
                 if (res.data.sucess === 'true') {
                     setLoadingMessage('Downloading Quiz...');
-                    const res = await axios.get('https://voxify-k2iw.onrender.com/chat/downPdf', {
+                    const res = await axios.get('https://voxify-1l5b.onrender.com/chat/downPdf', {
                         responseType: 'blob'
                     });
                     const blob = new Blob([res.data], { type: 'text/plain' });
@@ -79,7 +79,7 @@ const Pdf = () => {
 
             if (locations === 'FlashCard') {
                 setLoadingMessage('Generating Flashcards...');
-                const res = await axios.post('https://voxify-k2iw.onrender.com/chat/submitPDF', formdata, {
+                const res = await axios.post('https://voxify-1l5b.onrender.com/chat/submitPDF', formdata, {
                     headers: {
                         'Content-Type': 'multipart/form-data'
                     }
@@ -87,7 +87,7 @@ const Pdf = () => {
 
                 if (res.data.sucess === 'true') {
                     setLoadingMessage('Downloading Flashcards...');
-                    const res = await axios.get('https://voxify-k2iw.onrender.com/chat/downloadPDF', {
+                    const res = await axios.get('https://voxify-1l5b.onrender.com/chat/downloadPDF', {
                         responseType: 'blob'
                     });
                     const blob = new Blob([res.data], { type: 'text/plain' });
@@ -130,7 +130,7 @@ const Pdf = () => {
         try {
             if (locations === 'Quiz') {
                 setLoadingMessage('Processing Quiz...');
-                const res = await axios.post('https://voxify-k2iw.onrender.com/chat/quiz', formdata, {
+                const res = await axios.post('https://voxify-1l5b.onrender.com/chat/quiz', formdata, {
                     headers: {
                         'Content-Type': 'multipart/form-data',
                     }
@@ -143,7 +143,7 @@ const Pdf = () => {
 
             if (locations === 'FlashCard') {
                 setLoadingMessage('Processing Flashcards...');
-                const res = await axios.post('https://voxify-k2iw.onrender.com/chat/FlashCardSection', formdata, {
+                const res = await axios.post('https://voxify-1l5b.onrender.com/chat/FlashCardSection', formdata, {
                     headers: {
                         'Content-Type': 'multipart/form-data',
                     }

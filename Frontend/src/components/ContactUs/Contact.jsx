@@ -21,7 +21,7 @@ const Contact = () => {
         const issue = document.getElementById('message').value;
 
         try {
-            const res = await axios.post('https://voxify-k2iw.onrender.com/chat/issueHappend', {
+            const res = await axios.post('https://voxify-1l5b.onrender.com/chat/issueHappend', {
                 name,
                 phn,
                 email,

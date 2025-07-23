@@ -29,7 +29,7 @@ const QuizPage = () => {
 
   const fetchQuestion = async () => {
     try {
-      const res = await axios.get('https://voxify-k2iw.onrender.com/chat/fetchQuizQuestion');
+      const res = await axios.get('https://voxify-1l5b.onrender.com/chat/fetchQuizQuestion');
       setQuizData(res.data.msg);
     } catch (error) {
       console.log("Cannot fetch the questions from database");

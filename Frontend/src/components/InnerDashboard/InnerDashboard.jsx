@@ -142,7 +142,7 @@ function InnerDashboard() {
             formdata.append('value1', value1)
             formdata.append('value2', value2)
 
-            const res = await axios.post('https://voxify-k2iw.onrender.com/audio/download', formdata, {
+            const res = await axios.post('https://voxify-1l5b.onrender.com/audio/download', formdata, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 },
@@ -150,7 +150,7 @@ function InnerDashboard() {
 
             if (res.data.sucess === 'true') {
                 try {
-                    const response = await axios.get('https://voxify-k2iw.onrender.com/audio/down', {
+                    const response = await axios.get('https://voxify-1l5b.onrender.com/audio/down', {
                         responseType: 'blob'
                     });
                     const audioblob = new Blob([response.data], { type: "audio/mp3" })
@@ -183,7 +183,7 @@ function InnerDashboard() {
         setmascot(false);
 
         try {
-            const response = await axios.post('https://voxify-k2iw.onrender.com/chat/chatting', { inputText })
+            const response = await axios.post('https://voxify-1l5b.onrender.com/chat/chatting', { inputText })
 
             const botReply = { sender: 'bot', text: response.data.message };
             setMessages(prev => [...prev, botReply]);
@@ -215,7 +215,7 @@ function InnerDashboard() {
         setmascot(false);
 
         try {
-            const response = await axios.post('https://voxify-k2iw.onrender.com/chat/summary', formdata, {
+            const response = await axios.post('https://voxify-1l5b.onrender.com/chat/summary', formdata, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }

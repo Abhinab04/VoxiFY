@@ -26,7 +26,7 @@ function Body() {
     })
 
     const getdata = async () => {
-        const res = await Axios.get("https://voxify-k2iw.onrender.com")
+        const res = await Axios.get("https://voxify-1l5b.onrender.com")
         setbackend(res.data.message)
         console.log(res.data.message)
     }
