@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const { GoogleGenerativeAI } = require('@google/generative-ai');
-import predict from "./cropRotationRoute"
+const predict = require("./cropRotationRoute");
 require('dotenv').config();
 
 const app = express();
@@ -70,6 +70,7 @@ router.post('/chat', async (req, res) => {
 
                 if (success === true && collectedData.P, collectedData.N, collectedData.K, collectedData.pH, collectedData.state, collectedData.city, collectedData.country) {
                     predict(collectedData.P, collectedData.N, collectedData.K, collectedData.pH, collectedData.state, collectedData.city, collectedData.country)
+                    return;
                 }
                 else {
                     console.log("model")

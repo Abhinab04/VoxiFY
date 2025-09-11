@@ -123,6 +123,37 @@ const getSoilData = async (latitude, longitude) => {
     }
 }
 
+async function python_genrating(args) {
+    return new Promise((resolve, reject) => {
+        const pythonProcess = spawn('python', [...args]);
+        let output = '';
+        let errorOutput = '';
+
+        pythonProcess.stdout.on('data', (data) => {
+            output += data.toString();
+            console.log(output)
+        });
+
+        pythonProcess.stderr.on('data', (data) => {
+            errorOutput += data.toString();
+        });
+
+        pythonProcess.on('close', (code) => {
+            console.log(`Python process exited with code ${code}`);
+
+            if (code !== 0 || errorOutput.includes("tokens_limit_reached")) {
+                return reject({
+                    success: false,
+                    error: "Message too long or internal error occurred.",
+                    details: errorOutput
+                });
+            }
+            resolve();
+        });
+    })
+}
+
+
 module.exports = async function predict(N, P, K, ph, country, state, city) {
 
     if (!N || !P || !K || !ph || !country || !state || !city) {
@@ -188,6 +219,8 @@ The JSON object must follow this exact structure:
         const text = response.text();
         console.log(text);
 
+        const scriptPath = path.join(__dirname, "../../LangGraph/langGraphFile/langGraph.py")
+        await python_genrating([scriptPath, text])
         return res.json({ success: true, message: "Crop rotation plan generated successfully.", data: text });
 
     } catch (error) {
