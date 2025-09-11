@@ -69,7 +69,8 @@ router.post('/chat', async (req, res) => {
                 delete conversations[sessionId];
 
                 if (success === true && collectedData.P, collectedData.N, collectedData.K, collectedData.pH, collectedData.state, collectedData.city, collectedData.country) {
-                    predict(collectedData.P, collectedData.N, collectedData.K, collectedData.pH, collectedData.state, collectedData.city, collectedData.country)
+                    const scriptPath = path.join(__dirname, "../../LangGraph/langGraphFile/langGraph.py")
+                    await python_genrating([scriptPath, collectedData.P, collectedData.N, collectedData.K, collectedData.pH, collectedData.state, collectedData.city, collectedData.country])
                     return;
                 }
                 else {

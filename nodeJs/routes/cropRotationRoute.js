@@ -218,9 +218,6 @@ The JSON object must follow this exact structure:
         const response = await result.response;
         const text = response.text();
         console.log(text);
-
-        const scriptPath = path.join(__dirname, "../../LangGraph/langGraphFile/langGraph.py")
-        await python_genrating([scriptPath, text])
         return res.json({ success: true, message: "Crop rotation plan generated successfully.", data: text });
 
     } catch (error) {
